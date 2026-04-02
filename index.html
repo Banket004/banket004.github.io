@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="aAqFKzFF3Wh8OJdn9vt9amgbnq7uWGDtXUqZgm76MgA" />
     <title>GuessNumber - Classic Number Guessing Game</title>
     <meta name="description" content="A classic number guessing puzzle game. Deduce the secret number within limited attempts!">
     <style>
@@ -121,6 +120,40 @@
         .play-button svg {
             width: 32px;
             height: 32px;
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .apk-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 55px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.25);
+            transition: all 0.3s ease;
+        }
+
+        .apk-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+            background: linear-gradient(135deg, #218838 0%, #1ba37a 100%);
+        }
+
+        .apk-button svg {
+            width: 28px;
+            height: 28px;
         }
 
         /* Screenshots Section */
@@ -431,13 +464,22 @@
             <span class="badge" data-i18n="badge-ui">Material Design 3</span>
         </div>
         
-        <a href="https://play.google.com/store/apps/details?id=com.wetalk.game.guessnumber" 
-           class="play-button fade-in" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
-            </svg>
-            <span data-i18n="download-btn">Get it on Google Play</span>
-        </a>
+        <div class="download-buttons fade-in">
+            <a href="https://play.google.com/store/apps/details?id=com.wetalk.game.guessnumber"
+               class="play-button" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                </svg>
+                <span data-i18n="download-btn">Get it on Google Play</span>
+            </a>
+            <a href="games/guessnumber/com.wetalk.game.guessnumber_blogweb.apk"
+               class="apk-button" download>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                <span data-i18n="download-apk-btn">Download APK</span>
+            </a>
+        </div>
     </section>
 
     <!-- Screenshots Section -->
@@ -516,13 +558,22 @@
     <section class="download">
         <h2 class="download-title" data-i18n="download-title">Ready to Play?</h2>
         <p class="download-subtitle" data-i18n="download-subtitle">Download GuessNumber now and challenge yourself!</p>
-        <a href="https://play.google.com/store/apps/details?id=com.wetalk.game.guessnumber" 
-           class="play-button" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
-            </svg>
-            <span data-i18n="download-btn2">Get it on Google Play</span>
-        </a>
+        <div class="download-buttons">
+            <a href="https://play.google.com/store/apps/details?id=com.wetalk.game.guessnumber"
+               class="play-button" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                </svg>
+                <span data-i18n="download-btn2">Get it on Google Play</span>
+            </a>
+            <a href="games/guessnumber/com.wetalk.game.guessnumber_blogweb.apk"
+               class="apk-button" download>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                <span data-i18n="download-apk-btn2">Download APK</span>
+            </a>
+        </div>
     </section>
 
     <!-- Footer -->
