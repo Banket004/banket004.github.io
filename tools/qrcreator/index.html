@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCodeCreator - 二维码生成器 - APK Download</title>
+    <meta name="description" content="QRCodeCreator - 简洁强大的二维码制作工具，支持文本、网址、WiFi、联系人等，15种语言。立即下载！">
+    <meta name="keywords" content="二维码生成器,二维码制作,QR码生成,条码生成,二维码美化,Logo嵌入,WiFi二维码,联系人二维码,名片二维码,网址二维码,QR code generator,QR code maker,barcode generator,wifi qr code">
+    <link rel="canonical" href="https://banket004.github.io/tools/qrcreator/">
+    <link rel="alternate" hreflang="en" href="https://banket004.github.io/tools/qrcreator/">
+    <link rel="alternate" hreflang="zh-CN" href="https://banket004.github.io/tools/qrcreator/?lang=zh-CN">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --secondary: #34D399;
+            --cta: #F97316;
+            --bg: #ECFDF5;
+            --bg-white: #FFFFFF;
+            --text: #064E3B;
+            --text-muted: #6B7280;
+            --border: #D1FAE5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 16px 24px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .back-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-selector select {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            color: var(--text);
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .lang-selector select:hover {
+            border-color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-play {
+            background: white;
+            color: #10B981;
+        }
+
+        .btn-play:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .btn-apk {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-apk:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
+
+        .btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Screenshots */
+        .screenshots-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .screenshot {
+            width: 200px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* QR Types */
+        .qrtypes-section {
+            background: white;
+            padding: 60px 24px;
+        }
+
+        .qrtypes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .qrtype-card {
+            background: var(--bg);
+            padding: 24px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .qrtype-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .qrtype-icon svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        .qrtype-card h4 {
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        .qrtype-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            .screenshot {
+                width: 160px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="https://banket004.github.io/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>All Apps</span>
+            </a>
+            <a href="https://banket004.github.io/" class="logo">AndroidApps</a>
+            <div class="lang-selector">
+                <select id="langSelect" onchange="changeLanguage(this.value)">
+                    <option value="auto">🌐 Auto</option>
+                    <option value="en">English</option>
+                    <option value="zh-CN">简体中文</option>
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="ru">Русский</option>
+                    <option value="pt">Português</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="id">Bahasa Indonesia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <img src="ic_launcher.png" alt="QRCodeCreator App Icon" class="app-icon fade-in">
+            <h1 class="fade-in">QRCodeCreator</h1>
+            <p class="hero-subtitle fade-in">Powerful QR code generator with text, URL, WiFi, contact support. 15 languages supported.</p>
+            
+            <div class="badge-container fade-in">
+                <span class="badge">15 Languages</span>
+                <span class="badge">6 QR Types</span>
+                <span class="badge">Logo Embed</span>
+                <span class="badge">Material Design 3</span>
+            </div>
+            
+            <div class="download-buttons fade-in">
+                <a href="https://play.google.com/store/apps/details?id=com.wetalk.tools.qrcreator" class="btn btn-play" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                    </svg>
+                    Get on Google Play
+                </a>
+                <a href="com.wetalk.tools.qrcreator_blogweb.apk" class="btn btn-apk" download>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Download APK
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR Code Types -->
+    <section class="qrtypes-section">
+        <div class="section">
+            <h2 class="section-title">Supported QR Code Types</h2>
+            <div class="qrtypes-grid">
+                <div class="qrtype-card">
+                    <div class="qrtype-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16v16H4z"/>
+                            <path d="M9 9h6v6H9z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Text QR Code</h4>
+                        <p>Plain text, notes, any text content</p>
+                    </div>
+                </div>
+                <div class="qrtype-card">
+                    <div class="qrtype-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>URL QR Code</h4>
+                        <p>Auto-detect HTTP/HTTPS links</p>
+                    </div>
+                </div>
+                <div class="qrtype-card">
+                    <div class="qrtype-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                            <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                            <circle cx="12" cy="20" r="1"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>WiFi QR Code</h4>
+                        <p>Scan to connect, no password needed</p>
+                    </div>
+                </div>
+                <div class="qrtype-card">
+                    <div class="qrtype-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Phone QR Code</h4>
+                        <p>Direct call with international codes</p>
+                    </div>
+                </div>
+                <div class="qrtype-card">
+                    <div class="qrtype-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Email QR Code</h4>
+                        <p>Quick email with subject</p>
+                    </div>
+                </div>
+                <div class="qrtype-card">
+                    <div class="qrtype-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Contact QR Code</h4>
+                        <p>vCard 3.0, save to contacts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section">
+        <h2 class="section-title">Screenshots</h2>
+        <div class="screenshots-grid">
+            <img src="screenshot1.png" alt="QRCodeCreator Screenshot 1" class="screenshot">
+            <img src="screenshot2.png" alt="QRCodeCreator Screenshot 2" class="screenshot">
+            <img src="screenshot3.png" alt="QRCodeCreator Screenshot 3" class="screenshot">
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                <h3>15 Languages</h3>
+                <p>Support for Chinese, English, Japanese, Korean, German, French, Spanish, and more.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                </svg>
+                <h3>Logo Embed</h3>
+                <p>Embed your custom logo in the center of QR code for branding.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6"/>
+                    <path d="M1 12h6m6 0h6"/>
+                </svg>
+                <h3>Color Customization</h3>
+                <p>Preset colors + custom HEX color for foreground and background.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                <h3>Easy Save & Share</h3>
+                <p>One-tap save to gallery, share via system share sheet.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 QRCodeCreator. All Rights Reserved.</p>
+        <p>Contact: <a href="mailto:l.cooky.chan@gmail.com">l.cooky.chan@gmail.com</a></p>
+    </footer>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "QRCodeCreator",
+        "alternateName": "二维码生成器",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Android",
+        "description": "简洁强大的二维码制作工具，支持文本、网址、WiFi、联系人等，15种语言",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "ratingCount": "50"
+        }
+    }
+    </script>
+
+    <script>
+        const translations = {
+            'zh-CN': {
+                'page-title': 'QRCodeCreator - 二维码生成器 - APK 下载',
+                'meta-desc': 'QRCodeCreator - 简洁强大的二维码制作工具，支持文本、网址、WiFi、联系人等，15种语言。立即下载！',
+                'back-link': '所有应用',
+                'hero-title': '二维码生成器',
+                'hero-subtitle': '简洁强大的二维码制作工具，支持文本、网址、WiFi、联系人等，15种语言',
+                'badge-1': '15种语言',
+                'badge-2': '6种类型',
+                'badge-3': 'Logo嵌入',
+                'badge-4': 'Material Design 3',
+                'btn-play': '在 Google Play 获取',
+                'btn-apk': '下载 APK',
+                'qrtypes-title': '支持的二维码类型',
+                'qrtype-1-title': '文本二维码',
+                'qrtype-1-desc': '纯文本、笔记、任何文本内容',
+                'qrtype-2-title': '网址二维码',
+                'qrtype-2-desc': '自动检测 HTTP/HTTPS 链接',
+                'qrtype-3-title': 'WiFi 二维码',
+                'qrtype-3-desc': '扫码即连，无需密码',
+                'qrtype-4-title': '电话二维码',
+                'qrtype-4-desc': '直接拨打，国际代码支持',
+                'qrtype-5-title': '邮箱二维码',
+                'qrtype-5-desc': '快速发送邮件',
+                'qrtype-6-title': '联系人二维码',
+                'qrtype-6-desc': 'vCard 3.0，保存到通讯录',
+                'screenshots-title': '截图',
+                'features-title': '功能特点',
+                'feature-1-title': '15种语言',
+                'feature-1-desc': '支持中文、英文、日语、韩语、德语、法语、西班牙语等。',
+                'feature-2-title': 'Logo 嵌入',
+                'feature-2-desc': '在二维码中心嵌入您的自定义 Logo，用于品牌推广。',
+                'feature-3-title': '颜色自定义',
+                'feature-3-desc': '预设颜色 + 自定义 HEX 颜色，用于前景色和背景色。',
+                'feature-4-title': '轻松保存与分享',
+                'feature-4-desc': '一键保存到相册，通过系统分享面板分享。',
+                'jsonld-name': '二维码生成器',
+                'jsonld-desc': '简洁强大的二维码制作工具，支持文本、网址、WiFi、联系人等，15种语言',
+            },
+            'zh-TW': {
+                'page-title': 'QRCodeCreator - 二維碼生成器 - APK 下載',
+                'meta-desc': 'QRCodeCreator - 強大的二維碼製作工具，支援文本、網址、WiFi、聯絡人等，15種語言。立即下載！',
+                'back-link': '所有應用',
+                'hero-title': '二維碼生成器',
+                'hero-subtitle': '強大的二維碼製作工具，支援文本、網址、WiFi、聯絡人等，15種語言',
+                'badge-1': '15種語言',
+                'badge-2': '6種類型',
+                'badge-3': 'Logo嵌入',
+                'badge-4': 'Material Design 3',
+                'btn-play': '在 Google Play 獲取',
+                'btn-apk': '下載 APK',
+                'qrtypes-title': '支援的二維碼類型',
+                'qrtype-1-title': '文本二維碼',
+                'qrtype-1-desc': '純文本、筆記、任何文本內容',
+                'qrtype-2-title': '網址二維碼',
+                'qrtype-2-desc': '自動檢測 HTTP/HTTPS 連結',
+                'qrtype-3-title': 'WiFi 二維碼',
+                'qrtype-3-desc': '掃碼即連，無需密碼',
+                'qrtype-4-title': '電話二維碼',
+                'qrtype-4-desc': '直接撥打，國際代碼支援',
+                'qrtype-5-title': '郵箱二維碼',
+                'qrtype-5-desc': '快速發送郵件',
+                'qrtype-6-title': '聯絡人二維碼',
+                'qrtype-6-desc': 'vCard 3.0，儲存到通訊錄',
+                'screenshots-title': '截圖',
+                'features-title': '功能特點',
+                'feature-1-title': '15種語言',
+                'feature-1-desc': '支援中文、英文、日語、韓語、德語、法語、西班牙語等。',
+                'feature-2-title': 'Logo 嵌入',
+                'feature-2-desc': '在二維碼中心嵌入您的自訂 Logo，用於品牌推廣。',
+                'feature-3-title': '顏色自訂',
+                'feature-3-desc': '預設顏色 + 自訂 HEX 顏色，用於前景色和背景色。',
+                'feature-4-title': '輕鬆儲存與分享',
+                'feature-4-desc': '一鍵儲存到相冊，通過系統分享面板分享。',
+                'jsonld-name': '二維碼生成器',
+                'jsonld-desc': '強大的二維碼製作工具，支援文本、網址、WiFi、聯絡人等，15種語言',
+            },
+            'ja': {
+                'page-title': 'QRCodeCreator - QRコード作成 - APK ダウンロード',
+                'meta-desc': 'QRCodeCreator - 強力なQRコード作成ツール、テキスト、URL、WiFi、連絡先対応、15言語対応。即座にダウンロード！',
+                'back-link': 'すべてのアプリ',
+                'hero-title': 'QRコード作成',
+                'hero-subtitle': '強力なQRコード作成ツール、テキスト、URL、WiFi、連絡先対応、15言語対応',
+                'badge-1': '15言語',
+                'badge-2': '6タイプ',
+                'badge-3': 'Logo埋め込み',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play で入手',
+                'btn-apk': 'APK ダウンロード',
+                'qrtypes-title': '対応QRコードタイプ',
+                'qrtype-1-title': 'テキストQRコード',
+                'qrtype-1-desc': 'プレーンテキスト、メモ、任意のテキストコンテンツ',
+                'qrtype-2-title': 'URL QRコード',
+                'qrtype-2-desc': 'HTTP/HTTPSリンクを自動検出',
+                'qrtype-3-title': 'WiFi QRコード',
+                'qrtype-3-desc': 'スキャンして接続、パスワード不要',
+                'qrtype-4-title': '電話QRコード',
+                'qrtype-4-desc': '国際コード付きで直接通話',
+                'qrtype-5-title': 'メールQRコード',
+                'qrtype-5-desc': '件名付きで素早くメール送信',
+                'qrtype-6-title': '連絡先QRコード',
+                'qrtype-6-desc': 'vCard 3.0、連絡先に保存',
+                'screenshots-title': 'スクリーンショット',
+                'features-title': '機能',
+                'feature-1-title': '15言語',
+                'feature-1-desc': '中国語、英语、日本語、韓国語、ドイツ語、フランス語、スペイン語などサポート。',
+                'feature-2-title': 'Logo埋め込み',
+                'feature-2-desc': 'QRコードの中心にカスタムLogoを埋め込むブランディング。',
+                'feature-3-title': 'カラーカスタマイズ',
+                'feature-3-desc': 'プリセットカラー + カスタムHEXカラー対応。',
+                'feature-4-title': '簡単な保存と共有',
+                'feature-4-desc': 'ワンタップでギャラリーに保存、システム共有シートで共有。',
+                'jsonld-name': 'QRコード作成',
+                'jsonld-desc': '強力なQRコード作成ツール、テキスト、URL、WiFi、連絡先対応、15言語対応',
+            },
+            'ko': {
+                'page-title': 'QRCodeCreator - QR코드 생성기 - APK 다운로드',
+                'meta-desc': 'QRCodeCreator - 강력한 QR 코드 생성 도구, 텍스트, URL, WiFi, 연락처 지원, 15개 언어 지원. 지금 다운로드!',
+                'back-link': '모든 앱',
+                'hero-title': 'QR코드 생성기',
+                'hero-subtitle': '강력한 QR 코드 생성 도구, 텍스트, URL, WiFi, 연락처 지원, 15개 언어 지원',
+                'badge-1': '15개 언어',
+                'badge-2': '6가지 유형',
+                'badge-3': '로고埋め込み',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play에서 받기',
+                'btn-apk': 'APK 다운로드',
+                'qrtypes-title': '지원하는 QR 코드 유형',
+                'qrtype-1-title': '텍스트 QR 코드',
+                'qrtype-1-desc': '일반 텍스트, 메모, 모든 텍스트 콘텐츠',
+                'qrtype-2-title': 'URL QR 코드',
+                'qrtype-2-desc': 'HTTP/HTTPS 링크 자동 감지',
+                'qrtype-3-title': 'WiFi QR 코드',
+                'qrtype-3-desc': '스캔하여 연결, 비밀번호 불필요',
+                'qrtype-4-title': '전화 QR 코드',
+                'qrtype-4-desc': '국제 코드와 함께 직접 전화',
+                'qrtype-5-title': '이메일 QR 코드',
+                'qrtype-5-desc': '제목과 함께 빠른 이메일 보내기',
+                'qrtype-6-title': '연락처 QR 코드',
+                'qrtype-6-desc': 'vCard 3.0, 연락처에 저장',
+                'screenshots-title': '스크린샷',
+                'features-title': '기능',
+                'feature-1-title': '15개 언어',
+                'feature-1-desc': '중국어, 영어, 일본어, 한국어, 독일어, 프랑스어, 스페인어 등 지원.',
+                'feature-2-title': '로고埋め込み',
+                'feature-2-desc': 'QR 코드 중앙에 커스텀 로고를埋め込んで 브랜드 홍보.',
+                'feature-3-title': '색상 사용자 정의',
+                'feature-3-desc': '프리셋 색상 + 사용자 정의 HEX 색상 지원.',
+                'feature-4-title': '간편한 저장 및 공유',
+                'feature-4-desc': '원탭으로 갤러리에 저장, 시스템 공유 시트로 공유.',
+                'jsonld-name': 'QR코드 생성기',
+                'jsonld-desc': '강력한 QR 코드 생성 도구, 텍스트, URL, WiFi, 연락처 지원, 15개 언어 지원',
+            },
+            'de': {
+                'page-title': 'QRCodeCreator - QR-Code-Ersteller - APK Download',
+                'meta-desc': 'QRCodeCreator - Leistungsstarker QR-Code-Generator mit Text-, URL-, WiFi-, Kontakt-Support. 15 Sprachen. Jetzt herunterladen!',
+                'back-link': 'Alle Apps',
+                'hero-title': 'QR-Code-Ersteller',
+                'hero-subtitle': 'Leistungsstarker QR-Code-Generator mit Text-, URL-, WiFi-, Kontakt-Support. 15 Sprachen.',
+                'badge-1': '15 Sprachen',
+                'badge-2': '6 Typen',
+                'badge-3': 'Logo-Einbettung',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Bei Google Play holen',
+                'btn-apk': 'APK herunterladen',
+                'qrtypes-title': 'Unterstützte QR-Code-Typen',
+                'qrtype-1-title': 'Text-QR-Code',
+                'qrtype-1-desc': 'Klartext, Notizen, beliebige Textinhalte',
+                'qrtype-2-title': 'URL-QR-Code',
+                'qrtype-2-desc': 'HTTP/HTTPS-Links automatisch erkennen',
+                'qrtype-3-title': 'WiFi-QR-Code',
+                'qrtype-3-desc': 'Scannen zum Verbinden, kein Passwort nötig',
+                'qrtype-4-title': 'Telefon-QR-Code',
+                'qrtype-4-desc': 'Direkt anrufen mit internationalen Codes',
+                'qrtype-5-title': 'E-Mail-QR-Code',
+                'qrtype-5-desc': 'Schnell E-Mail mit Betreff senden',
+                'qrtype-6-title': 'Kontakt-QR-Code',
+                'qrtype-6-desc': 'vCard 3.0, in Kontakte speichern',
+                'screenshots-title': 'Screenshots',
+                'features-title': 'Funktionen',
+                'feature-1-title': '15 Sprachen',
+                'feature-1-desc': 'Unterstützung für Chinesisch, Englisch, Japanisch, Koreanisch, Deutsch, Französisch, Spanisch und mehr.',
+                'feature-2-title': 'Logo-Einbettung',
+                'feature-2-desc': 'Benutzerdefiniertes Logo in die Mitte des QR-Codes einbetten.',
+                'feature-3-title': 'Farbanpassung',
+                'feature-3-desc': 'Voreingestellte Farben + benutzerdefinierte HEX-Farbe.',
+                'feature-4-title': 'Einfaches Speichern & Teilen',
+                'feature-4-desc': 'One-Tap-Speichern in Galerie, Teilen über System-Share-Sheet.',
+                'jsonld-name': 'QR-Code-Ersteller',
+                'jsonld-desc': 'Leistungsstarker QR-Code-Generator mit Text-, URL-, WiFi-, Kontakt-Support. 15 Sprachen.',
+            },
+            'fr': {
+                'page-title': 'QRCodeCreator - Créateur de code QR - Télécharger APK',
+                'meta-desc': 'QRCodeCreator - Générateur de code QR puissant avec support texte, URL, WiFi, contact. 15 langues. Téléchargez maintenant!',
+                'back-link': 'Toutes les apps',
+                'hero-title': 'Créateur de code QR',
+                'hero-subtitle': 'Générateur de code QR puissant avec support texte, URL, WiFi, contact. 15 langues.',
+                'badge-1': '15 langues',
+                'badge-2': '6 types',
+                'badge-3': 'Insertion logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obtenir sur Google Play',
+                'btn-apk': 'Télécharger APK',
+                'qrtypes-title': 'Types de codes QR pris en charge',
+                'qrtype-1-title': 'Code QR texte',
+                'qrtype-1-desc': 'Texte brut, notes, tout contenu textuel',
+                'qrtype-2-title': 'Code QR URL',
+                'qrtype-2-desc': 'Détection automatique des liens HTTP/HTTPS',
+                'qrtype-3-title': 'Code QR WiFi',
+                'qrtype-3-desc': 'Scanner pour connecter, pas de mot de passe',
+                'qrtype-4-title': 'Code QR téléphone',
+                'qrtype-4-desc': 'Appeler directement avec codes internationaux',
+                'qrtype-5-title': 'Code QR email',
+                'qrtype-5-desc': 'Email rapide avec objet',
+                'qrtype-6-title': 'Code QR contact',
+                'qrtype-6-desc': 'vCard 3.0, enregistrer dans contacts',
+                'screenshots-title': 'Captures d\'écran',
+                'features-title': 'Fonctionnalités',
+                'feature-1-title': '15 langues',
+                'feature-1-desc': 'Support du chinois, anglais, japonais, coréen, allemand, français, espagnol et plus.',
+                'feature-2-title': 'Insertion logo',
+                'feature-2-desc': 'Intégrez votre logo personnalisé au centre du code QR.',
+                'feature-3-title': 'Personnalisation des couleurs',
+                'feature-3-desc': 'Couleurs prédéfinies + couleur HEX personnalisée.',
+                'feature-4-title': 'Sauvegarde et partage facile',
+                'feature-4-desc': 'Sauvegarde en un clic dans la galerie, partage via système.',
+                'jsonld-name': 'Créateur de code QR',
+                'jsonld-desc': 'Générateur de code QR puissant avec support texte, URL, WiFi, contact. 15 langues.',
+            },
+            'es': {
+                'page-title': 'QRCodeCreator - Creador de código QR - Descargar APK',
+                'meta-desc': 'QRCodeCreator - Potente generador de código QR con soporte de texto, URL, WiFi, contacto. 15 idiomas. ¡Descarga ahora!',
+                'back-link': 'Todas las apps',
+                'hero-title': 'Creador de código QR',
+                'hero-subtitle': 'Potente generador de código QR con soporte de texto, URL, WiFi, contacto. 15 idiomas.',
+                'badge-1': '15 idiomas',
+                'badge-2': '6 tipos',
+                'badge-3': 'Inserción de logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obtener en Google Play',
+                'btn-apk': 'Descargar APK',
+                'qrtypes-title': 'Tipos de código QR compatibles',
+                'qrtype-1-title': 'Código QR de texto',
+                'qrtype-1-desc': 'Texto plano, notas, cualquier contenido de texto',
+                'qrtype-2-title': 'Código QR URL',
+                'qrtype-2-desc': 'Detección automática de enlaces HTTP/HTTPS',
+                'qrtype-3-title': 'Código QR WiFi',
+                'qrtype-3-desc': 'Escanear para conectar, sin contraseña',
+                'qrtype-4-title': 'Código QR de teléfono',
+                'qrtype-4-desc': 'Llamar directamente con códigos internacionales',
+                'qrtype-5-title': 'Código QR de email',
+                'qrtype-5-desc': 'Email rápido con asunto',
+                'qrtype-6-title': 'Código QR de contacto',
+                'qrtype-6-desc': 'vCard 3.0, guardar en contactos',
+                'screenshots-title': 'Capturas de pantalla',
+                'features-title': 'Características',
+                'feature-1-title': '15 idiomas',
+                'feature-1-desc': 'Soporte para chino, inglés, japonés, coreano, alemán, francés, español y más.',
+                'feature-2-title': 'Inserción de logo',
+                'feature-2-desc': 'Inserte su logo personalizado en el centro del código QR.',
+                'feature-3-title': 'Personalización de colores',
+                'feature-3-desc': 'Colores preestablecidos + color HEX personalizado.',
+                'feature-4-title': 'Fácil guardar y compartir',
+                'feature-4-desc': 'Guardar en un clic en galería, compartir mediante sistema.',
+                'jsonld-name': 'Creador de código QR',
+                'jsonld-desc': 'Potente generador de código QR con soporte de texto, URL, WiFi, contacto. 15 idiomas.',
+            },
+            'ru': {
+                'page-title': 'QRCodeCreator - Генератор QR-кодов - Скачать APK',
+                'meta-desc': 'QRCodeCreator - Мощный генератор QR-кодов с поддержкой текста, URL, WiFi, контактов. 15 языков. Скачать сейчас!',
+                'back-link': 'Все приложения',
+                'hero-title': 'Генератор QR-кодов',
+                'hero-subtitle': 'Мощный генератор QR-кодов с поддержкой текста, URL, WiFi, контактов. 15 языков.',
+                'badge-1': '15 языков',
+                'badge-2': '6 типов',
+                'badge-3': 'Вставка лого',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Получить в Google Play',
+                'btn-apk': 'Скачать APK',
+                'qrtypes-title': 'Поддерживаемые типы QR-кодов',
+                'qrtype-1-title': 'Текстовый QR-код',
+                'qrtype-1-desc': 'Простой текст, заметки, любой текстовый контент',
+                'qrtype-2-title': 'URL QR-код',
+                'qrtype-2-desc': 'Автоопределение ссылок HTTP/HTTPS',
+                'qrtype-3-title': 'WiFi QR-код',
+                'qrtype-3-desc': 'Сканировать для подключения, без пароля',
+                'qrtype-4-title': 'Телефонный QR-код',
+                'qrtype-4-desc': 'Прямой звонок с международными кодами',
+                'qrtype-5-title': 'Email QR-код',
+                'qrtype-5-desc': 'Быстрое письмо с темой',
+                'qrtype-6-title': 'Контактный QR-код',
+                'qrtype-6-desc': 'vCard 3.0, сохранить в контакты',
+                'screenshots-title': 'Скриншоты',
+                'features-title': 'Функции',
+                'feature-1-title': '15 языков',
+                'feature-1-desc': 'Поддержка китайского, английского, японского, корейского, немецкого, французского, испанского и др.',
+                'feature-2-title': 'Вставка лого',
+                'feature-2-desc': 'Вставьте свой логотип в центр QR-кода для брендинга.',
+                'feature-3-title': 'Настройка цветов',
+                'feature-3-desc': 'Предустановленные цвета + пользовательский HEX-цвет.',
+                'feature-4-title': 'Легкое сохранение и разделение',
+                'feature-4-desc': 'Одно касание для сохранения в галерею, через системный шеринг.',
+                'jsonld-name': 'Генератор QR-кодов',
+                'jsonld-desc': 'Мощный генератор QR-кодов с поддержкой текста, URL, WiFi, контактов. 15 языков.',
+            },
+            'pt': {
+                'page-title': 'QRCodeCreator - Criador de código QR - Baixar APK',
+                'meta-desc': 'QRCodeCreator - Poderoso gerador de código QR com suporte a texto, URL, WiFi, contato. 15 idiomas. Baixe agora!',
+                'back-link': 'Todos os apps',
+                'hero-title': 'Criador de código QR',
+                'hero-subtitle': 'Poderoso gerador de código QR com suporte a texto, URL, WiFi, contato. 15 idiomas.',
+                'badge-1': '15 idiomas',
+                'badge-2': '6 tipos',
+                'badge-3': 'Inserção de logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obter no Google Play',
+                'btn-apk': 'Baixar APK',
+                'qrtypes-title': 'Tipos de código QR suportados',
+                'qrtype-1-title': 'Código QR de texto',
+                'qrtype-1-desc': 'Texto simples, notas, qualquer conteúdo de texto',
+                'qrtype-2-title': 'Código QR de URL',
+                'qrtype-2-desc': 'Detecção automática de links HTTP/HTTPS',
+                'qrtype-3-title': 'Código QR de WiFi',
+                'qrtype-3-desc': 'Escanear para conectar, sem senha',
+                'qrtype-4-title': 'Código QR de telefone',
+                'qrtype-4-desc': 'Ligar diretamente com códigos internacionais',
+                'qrtype-5-title': 'Código QR de email',
+                'qrtype-5-desc': 'Email rápido com assunto',
+                'qrtype-6-title': 'Código QR de contato',
+                'qrtype-6-desc': 'vCard 3.0, salvar em contatos',
+                'screenshots-title': 'Capturas de tela',
+                'features-title': 'Recursos',
+                'feature-1-title': '15 idiomas',
+                'feature-1-desc': 'Suporte para chinês, inglês, japonês, coreano, alemão, francês, espanhol e mais.',
+                'feature-2-title': 'Inserção de logo',
+                'feature-2-desc': 'Insira seu logo personalizado no centro do código QR.',
+                'feature-3-title': 'Personalização de cores',
+                'feature-3-desc': 'Cores predefinidas + cor HEX personalizada.',
+                'feature-4-title': 'Fácil salvar e compartilhar',
+                'feature-4-desc': 'Um toque para salvar na galeria, compartilhar via sistema.',
+                'jsonld-name': 'Criador de código QR',
+                'jsonld-desc': 'Poderoso gerador de código QR com suporte a texto, URL, WiFi, contato. 15 idiomas.',
+            },
+            'tr': {
+                'page-title': 'QRCodeCreator - QR Kod Oluşturucu - APK İndir',
+                'meta-desc': 'QRCodeCreator - Metin, URL, WiFi, kişi desteğiyle güçlü QR kod oluşturucu. 15 dil. Hemen indir!',
+                'back-link': 'Tüm uygulamalar',
+                'hero-title': 'QR Kod Oluşturucu',
+                'hero-subtitle': 'Metin, URL, WiFi, kişi desteğiyle güçlü QR kod oluşturucu. 15 dil.',
+                'badge-1': '15 dil',
+                'badge-2': '6 tip',
+                'badge-3': 'Logo ekleme',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play\'den al',
+                'btn-apk': 'APK indir',
+                'qrtypes-title': 'Desteklenen QR kod türleri',
+                'qrtype-1-title': 'Metin QR kodu',
+                'qrtype-1-desc': 'Düz metin, notlar, herhangi bir metin içeriği',
+                'qrtype-2-title': 'URL QR kodu',
+                'qrtype-2-desc': 'HTTP/HTTPS bağlantılarını otomatik algılama',
+                'qrtype-3-title': 'WiFi QR kodu',
+                'qrtype-3-desc': 'Bağlanmak için tarama, şifre gerekmez',
+                'qrtype-4-title': 'Telefon QR kodu',
+                'qrtype-4-desc': 'Uluslararası kodlarla doğrudan arama',
+                'qrtype-5-title': 'E-posta QR kodu',
+                'qrtype-5-desc': 'Konu ile hızlı e-posta gönderme',
+                'qrtype-6-title': 'Kişi QR kodu',
+                'qrtype-6-desc': 'vCard 3.0, kişilere kaydetme',
+                'screenshots-title': 'Ekran görüntüleri',
+                'features-title': 'Özellikler',
+                'feature-1-title': '15 dil',
+                'feature-1-desc': 'Çince, İngilizce, Japonca, Korece, Almanca, Fransızca, İspanyolca ve daha fazlası destek.',
+                'feature-2-title': 'Logo ekleme',
+                'feature-2-desc': 'QR kodunun ortasına özel logo ekleyin.',
+                'feature-3-title': 'Renk özelleştirme',
+                'feature-3-desc': 'Ön ayarlı renkler + özel HEX rengi.',
+                'feature-4-title': 'Kolay kaydetme ve paylaşma',
+                'feature-4-desc': 'Galeriye tek dokunuşla kaydetme, sistem paylaşımı ile paylaşma.',
+                'jsonld-name': 'QR Kod Oluşturucu',
+                'jsonld-desc': 'Metin, URL, WiFi, kişi desteğiyle güçlü QR kod oluşturucu. 15 dil.',
+            },
+            'hi': {
+                'page-title': 'QRCodeCreator - QR कोड क्रिएटर - APK डाउनलोड',
+                'meta-desc': 'QRCodeCreator - टेक्स्ट, URL, WiFi, कॉन्टैक्ट सपोर्ट के साथ शक्तिशाली QR कोड जनरेटर। 15 भाषाएं। अभी डाउनलोड करें!',
+                'back-link': 'सभी ऐप्स',
+                'hero-title': 'QR कोड क्रिएटर',
+                'hero-subtitle': 'टेक्स्ट, URL, WiFi, कॉन्टैक्ट सपोर्ट के साथ शक्तिशाली QR कोड जनरेटर। 15 भाषाएं।',
+                'badge-1': '15 भाषाएं',
+                'badge-2': '6 प्रकार',
+                'badge-3': 'लोगो एम्बेड',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play पर प्राप्त करें',
+                'btn-apk': 'APK डाउनलोड करें',
+                'qrtypes-title': 'समर्थित QR कोड प्रकार',
+                'qrtype-1-title': 'टेक्स्ट QR कोड',
+                'qrtype-1-desc': 'सादा टेक्स्ट, नोट्स, कोई भी टेक्स्ट सामग्री',
+                'qrtype-2-title': 'URL QR कोड',
+                'qrtype-2-desc': 'HTTP/HTTPS लिंक ऑटो-डिटेक्ट',
+                'qrtype-3-title': 'WiFi QR कोड',
+                'qrtype-3-desc': 'कनेक्ट करने के लिए स्कैन, पासवर्ड की जरूरत नहीं',
+                'qrtype-4-title': 'फोन QR कोड',
+                'qrtype-4-desc': 'इंटरनेशनल कोड के साथ सीधी कॉल',
+                'qrtype-5-title': 'ईमेल QR कोड',
+                'qrtype-5-desc': 'विषय के साथ तेज ईमेल',
+                'qrtype-6-title': 'कॉन्टैक्ट QR कोड',
+                'qrtype-6-desc': 'vCard 3.0, कॉन्टैक्ट में सेव करें',
+                'screenshots-title': 'स्क्रीनशॉट',
+                'features-title': 'विशेषताएं',
+                'feature-1-title': '15 भाषाएं',
+                'feature-1-desc': 'चीनी, अंग्रेजी, जापानी, कोरियाई, जर्मन, फ्रेंच, स्पेनिश और अधिक समर्थन।',
+                'feature-2-title': 'लोगो एम्बेड',
+                'feature-2-desc': 'ब्रांडिंग के लिए QR कोड के केंद्र में अपना कस्टम लोगो एम्बेड करें।',
+                'feature-3-title': 'रंग अनुकूलन',
+                'feature-3-desc': 'प्रीसेट रंग + कस्टम HEX रंग।',
+                'feature-4-title': 'आसान सेव और शेयर',
+                'feature-4-desc': 'गैलरी में वन-टैप सेव, सिस्टम शेयर शीट से शेयर।',
+                'jsonld-name': 'QR कोड क्रिएटर',
+                'jsonld-desc': 'टेक्स्ट, URL, WiFi, कॉन्टैक्ट सपोर्ट के साथ शक्तिशाली QR कोड जनरेटर। 15 भाषाएं।',
+            },
+            'id': {
+                'page-title': 'QRCodeCreator - Pembuat QR code - Unduh APK',
+                'meta-desc': 'QRCodeCreator - Pembuat QR code yang kuat dengan dukungan teks, URL, WiFi, kontak. 15 bahasa. Unduh sekarang!',
+                'back-link': 'Semua aplikasi',
+                'hero-title': 'Pembuat QR code',
+                'hero-subtitle': 'Pembuat QR code yang kuat dengan dukungan teks, URL, WiFi, kontak. 15 bahasa.',
+                'badge-1': '15 bahasa',
+                'badge-2': '6 jenis',
+                'badge-3': 'Sisipkan logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Dapatkan di Google Play',
+                'btn-apk': 'Unduh APK',
+                'qrtypes-title': 'Jenis QR code yang didukung',
+                'qrtype-1-title': 'QR code teks',
+                'qrtype-1-desc': 'Teks biasa, catatan, konten teks apapun',
+                'qrtype-2-title': 'QR code URL',
+                'qrtype-2-desc': 'Deteksi otomatis link HTTP/HTTPS',
+                'qrtype-3-title': 'QR code WiFi',
+                'qrtype-3-desc': 'Pindai untuk terhubung, tanpa kata sandi',
+                'qrtype-4-title': 'QR code telepon',
+                'qrtype-4-desc': 'Hubungi langsung dengan kode internasional',
+                'qrtype-5-title': 'QR code email',
+                'qrtype-5-desc': 'Email cepat dengan subjek',
+                'qrtype-6-title': 'QR code kontak',
+                'qrtype-6-desc': 'vCard 3.0, simpan ke kontak',
+                'screenshots-title': 'Tangkapan layar',
+                'features-title': 'Fitur',
+                'feature-1-title': '15 bahasa',
+                'feature-1-desc': 'Dukungan untuk Mandarin, Inggris, Jepang, Korea, Jerman, Prancis, Spanyol dan lainnya.',
+                'feature-2-title': 'Sisipkan logo',
+                'feature-2-desc': 'Sisipkan logo kustom Anda di tengah QR code untuk branding.',
+                'feature-3-title': 'Kustomisasi warna',
+                'feature-3-desc': 'Warna preset + warna HEX kustom.',
+                'feature-4-title': 'Mudah simpan & bagikan',
+                'feature-4-desc': 'Simpan satu ketukan ke galeri, bagikan melalui sistem.',
+                'jsonld-name': 'Pembuat QR code',
+                'jsonld-desc': 'Pembuat QR code yang kuat dengan dukungan teks, URL, WiFi, kontak. 15 bahasa.',
+            }
+        };
+
+        function getCurrentLang() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang');
+            if (!lang) {
+                lang = localStorage.getItem('selectedLang') || 'auto';
+            }
+            if (lang === 'auto') {
+                const browserLang = navigator.language || navigator.userLanguage;
+                lang = browserLang.startsWith('zh') ? (browserLang === 'zh-TW' || browserLang === 'zh-HK' ? 'zh-TW' : 'zh-CN') : 
+                       browserLang.split('-')[0];
+                const langMap = {'en': 'en', 'ja': 'ja', 'ko': 'ko', 'de': 'de', 'fr': 'fr', 'es': 'es', 'ru': 'ru', 'pt': 'pt', 'tr': 'tr', 'hi': 'hi', 'id': 'id'};
+                lang = langMap[lang] || 'en';
+            }
+            return lang;
+        }
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selectedLang', lang);
+            const currentUrl = window.location.href.split('?')[0];
+            if (lang === 'auto') {
+                window.location.href = currentUrl;
+            } else {
+                window.location.href = currentUrl + '?lang=' + lang;
+            }
+        }
+
+        function applyTranslations() {
+            const lang = getCurrentLang();
+            if (lang === 'en' || !translations[lang]) return;
+
+            const t = translations[lang];
+            
+            // Page title and meta
+            if (t['page-title']) document.title = t['page-title'];
+            const metaDesc = document.querySelector('meta[name="description"]');
+            if (metaDesc && t['meta-desc']) metaDesc.setAttribute('content', t['meta-desc']);
+            
+            // Back link
+            const backLinkSpan = document.querySelector('.back-link span');
+            if (backLinkSpan && t['back-link']) backLinkSpan.textContent = t['back-link'];
+            
+            // Hero
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle && t['hero-title']) heroTitle.textContent = t['hero-title'];
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroSubtitle && t['hero-subtitle']) heroSubtitle.textContent = t['hero-subtitle'];
+            
+            // Badges
+            const badges = document.querySelectorAll('.badge');
+            if (t['badge-1'] && badges[0]) badges[0].textContent = t['badge-1'];
+            if (t['badge-2'] && badges[1]) badges[1].textContent = t['badge-2'];
+            if (t['badge-3'] && badges[2]) badges[2].textContent = t['badge-3'];
+            if (t['badge-4'] && badges[3]) badges[3].textContent = t['badge-4'];
+            
+            // Download buttons
+            const btnPlay = document.querySelector('.btn-play');
+            if (btnPlay && t['btn-play']) btnPlay.innerHTML = btnPlay.innerHTML.replace(/Get on Google Play/, t['btn-play']);
+            const btnApk = document.querySelector('.btn-apk');
+            if (btnApk && t['btn-apk']) btnApk.innerHTML = btnApk.innerHTML.replace(/Download APK/, t['btn-apk']);
+            
+            // QR Types section title
+            const qrtypesTitle = document.querySelector('.qrtypes-section h2');
+            if (qrtypesTitle && t['qrtypes-title']) qrtypesTitle.textContent = t['qrtypes-title'];
+            
+            // QR Type cards
+            const qrtypeCards = document.querySelectorAll('.qrtype-card');
+            if (qrtypeCards.length >= 6) {
+                if (t['qrtype-1-title']) qrtypeCards[0].querySelector('h4').textContent = t['qrtype-1-title'];
+                if (t['qrtype-1-desc']) qrtypeCards[0].querySelector('p').textContent = t['qrtype-1-desc'];
+                if (t['qrtype-2-title']) qrtypeCards[1].querySelector('h4').textContent = t['qrtype-2-title'];
+                if (t['qrtype-2-desc']) qrtypeCards[1].querySelector('p').textContent = t['qrtype-2-desc'];
+                if (t['qrtype-3-title']) qrtypeCards[2].querySelector('h4').textContent = t['qrtype-3-title'];
+                if (t['qrtype-3-desc']) qrtypeCards[2].querySelector('p').textContent = t['qrtype-3-desc'];
+                if (t['qrtype-4-title']) qrtypeCards[3].querySelector('h4').textContent = t['qrtype-4-title'];
+                if (t['qrtype-4-desc']) qrtypeCards[3].querySelector('p').textContent = t['qrtype-4-desc'];
+                if (t['qrtype-5-title']) qrtypeCards[4].querySelector('h4').textContent = t['qrtype-5-title'];
+                if (t['qrtype-5-desc']) qrtypeCards[4].querySelector('p').textContent = t['qrtype-5-desc'];
+                if (t['qrtype-6-title']) qrtypeCards[5].querySelector('h4').textContent = t['qrtype-6-title'];
+                if (t['qrtype-6-desc']) qrtypeCards[5].querySelector('p').textContent = t['qrtype-6-desc'];
+            }
+            
+            // Screenshots
+            const screenshotsTitle = document.querySelector('.screenshots-grid').previousElementSibling;
+            if (screenshotsTitle && t['screenshots-title']) screenshotsTitle.textContent = t['screenshots-title'];
+            
+            // Features
+            const featuresTitle = document.querySelector('.features-grid').previousElementSibling;
+            if (featuresTitle && t['features-title']) featuresTitle.textContent = t['features-title'];
+            
+            const featureCards = document.querySelectorAll('.feature-card');
+            if (featureCards.length >= 4) {
+                if (t['feature-1-title']) featureCards[0].querySelector('h3').textContent = t['feature-1-title'];
+                if (t['feature-1-desc']) featureCards[0].querySelector('p').textContent = t['feature-1-desc'];
+                if (t['feature-2-title']) featureCards[1].querySelector('h3').textContent = t['feature-2-title'];
+                if (t['feature-2-desc']) featureCards[1].querySelector('p').textContent = t['feature-2-desc'];
+                if (t['feature-3-title']) featureCards[2].querySelector('h3').textContent = t['feature-3-title'];
+                if (t['feature-3-desc']) featureCards[2].querySelector('p').textContent = t['feature-3-desc'];
+                if (t['feature-4-title']) featureCards[3].querySelector('h3').textContent = t['feature-4-title'];
+                if (t['feature-4-desc']) featureCards[3].querySelector('p').textContent = t['feature-4-desc'];
+            }
+            
+            // Update lang selector
+            const langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = lang;
+            
+            // Update JSON-LD
+            const jsonldScript = document.querySelector('script[type="application/ld+json"]');
+            if (jsonldScript && t['jsonld-name'] && t['jsonld-desc']) {
+                try {
+                    const jsonld = JSON.parse(jsonldScript.textContent);
+                    jsonld.alternateName = t['jsonld-name'];
+                    jsonld.description = t['jsonld-desc'];
+                    jsonldScript.textContent = JSON.stringify(jsonld, null, 2);
+                } catch (e) {}
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', applyTranslations);
+    </script>
+            'zh-CN': {
+                'back-link': '所有应用',
+                'hero-title': '二维码生成器',
+                'hero-subtitle': '简洁强大的二维码制作工具，支持文本、网址、WiFi、联系人等，15种语言',
+                'badge-1': '15种语言',
+                'badge-2': '6种类型',
+                'badge-3': 'Logo嵌入',
+                'badge-4': 'Material Design 3',
+                'btn-play': '在 Google Play 获取',
+                'btn-apk': '下载 APK',
+                'qrtypes-title': '支持的二维码类型',
+                'qrtype-1-title': '文本二维码',
+                'qrtype-1-desc': '纯文本、笔记、任何文本内容',
+                'qrtype-2-title': '网址二维码',
+                'qrtype-2-desc': '自动检测 HTTP/HTTPS 链接',
+                'qrtype-3-title': 'WiFi 二维码',
+                'qrtype-3-desc': '扫码即连，无需密码',
+                'qrtype-4-title': '电话二维码',
+                'qrtype-4-desc': '直接拨打，国际代码支持',
+                'qrtype-5-title': '邮箱二维码',
+                'qrtype-5-desc': '快速发送邮件',
+                'qrtype-6-title': '联系人二维码',
+                'qrtype-6-desc': 'vCard 3.0，保存到通讯录',
+                'screenshots-title': '截图',
+                'features-title': '功能特点',
+                'feature-1-title': '15种语言',
+                'feature-1-desc': 'Support for Chinese, English, Japanese, Korean, German, French, Spanish and more.',
+                'feature-2-title': 'Logo 嵌入',
+                'feature-2-desc': '在二维码中心嵌入您的自定义 Logo，用于品牌推广。',
+                'feature-3-title': '颜色自定义',
+                'feature-3-desc': '预设颜色 + 自定义 HEX 颜色，用于前景色和背景色。',
+                'feature-4-title': '轻松保存与分享',
+                'feature-4-desc': '一键保存到相册，通过系统分享面板分享。',
+            },
+            'zh-TW': {
+                'back-link': '所有應用',
+                'hero-title': '二維碼生成器',
+                'hero-subtitle': '強大的二維碼製作工具，支援文本、網址、WiFi、聯絡人等，15種語言',
+                'badge-1': '15種語言',
+                'badge-2': '6種類型',
+                'badge-3': 'Logo嵌入',
+                'badge-4': 'Material Design 3',
+                'btn-play': '在 Google Play 獲取',
+                'btn-apk': '下載 APK',
+                'qrtypes-title': '支援的二維碼類型',
+                'qrtype-1-title': '文本二維碼',
+                'qrtype-1-desc': '純文本、筆記、任何文本內容',
+                'qrtype-2-title': '網址二維碼',
+                'qrtype-2-desc': '自動檢測 HTTP/HTTPS 連結',
+                'qrtype-3-title': 'WiFi 二維碼',
+                'qrtype-3-desc': '掃碼即連，無需密碼',
+                'qrtype-4-title': '電話二維碼',
+                'qrtype-4-desc': '直接撥打，國際代碼支援',
+                'qrtype-5-title': '郵箱二維碼',
+                'qrtype-5-desc': '快速發送郵件',
+                'qrtype-6-title': '聯絡人二維碼',
+                'qrtype-6-desc': 'vCard 3.0，儲存到通訊錄',
+                'screenshots-title': '截圖',
+                'features-title': '功能特點',
+                'feature-1-title': '15種語言',
+                'feature-1-desc': '支援中文、英文、日語、韓語、德語、法語、西班牙語等。',
+                'feature-2-title': 'Logo 嵌入',
+                'feature-2-desc': '在二維碼中心嵌入您的自訂 Logo，用於品牌推廣。',
+                'feature-3-title': '顏色自訂',
+                'feature-3-desc': '預設顏色 + 自訂 HEX 顏色，用於前景色和背景色。',
+                'feature-4-title': '輕鬆儲存與分享',
+                'feature-4-desc': '一鍵儲存到相冊，通過系統分享面板分享。',
+            },
+            'ja': {
+                'back-link': 'すべてのアプリ',
+                'hero-title': 'QRコード作成',
+                'hero-subtitle': '強力なQRコード作成ツール、テキスト、URL、WiFi、連絡先対応、15言語対応',
+                'badge-1': '15言語',
+                'badge-2': '6タイプ',
+                'badge-3': 'Logo嵌入',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play で入手',
+                'btn-apk': 'APK ダウンロード',
+                'qrtypes-title': '対応QRコードタイプ',
+                'qrtype-1-title': 'テキストQRコード',
+                'qrtype-1-desc': 'プレーンテキスト、メモ、任意のテキストコンテンツ',
+                'qrtype-2-title': 'URL QRコード',
+                'qrtype-2-desc': 'HTTP/HTTPSリンクを自動検出',
+                'qrtype-3-title': 'WiFi QRコード',
+                'qrtype-3-desc': 'スキャンして接続、パスワード不要',
+                'qrtype-4-title': '電話QRコード',
+                'qrtype-4-desc': '国際コード付きで直接通話',
+                'qrtype-5-title': 'メールQRコード',
+                'qrtype-5-desc': '件名付きで素早くメール送信',
+                'qrtype-6-title': '連絡先QRコード',
+                'qrtype-6-desc': 'vCard 3.0、連絡先に保存',
+                'screenshots-title': 'スクリーンショット',
+                'features-title': '機能',
+                'feature-1-title': '15言語',
+                'feature-1-desc': '中国語、英语、日本語、韓国語、ドイツ語、フランス語、スペイン語などサポート。',
+                'feature-2-title': 'Logo嵌入',
+                'feature-2-desc': 'QRコードの中心にカスタムLogoを埋め込むブランディング。',
+                'feature-3-title': 'カラーカスタマイズ',
+                'feature-3-desc': 'プリセットカラー + カスタムHEXカラー対応。',
+                'feature-4-title': '簡単な保存と共有',
+                'feature-4-desc': 'ワンタップでギャラリーに保存、システム共有シートで共有。',
+            },
+            'ko': {
+                'back-link': '모든 앱',
+                'hero-title': 'QR코드 생성기',
+                'hero-subtitle': '강력한 QR 코드 생성 도구, 텍스트, URL, WiFi, 연락처 지원, 15개 언어 지원',
+                'badge-1': '15개 언어',
+                'badge-2': '6가지 유형',
+                'badge-3': '로고嵌入',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play에서 받기',
+                'btn-apk': 'APK 다운로드',
+                'qrtypes-title': '지원하는 QR 코드 유형',
+                'qrtype-1-title': '텍스트 QR 코드',
+                'qrtype-1-desc': '일반 텍스트, 메모, 모든 텍스트 콘텐츠',
+                'qrtype-2-title': 'URL QR 코드',
+                'qrtype-2-desc': 'HTTP/HTTPS 링크 자동 감지',
+                'qrtype-3-title': 'WiFi QR 코드',
+                'qrtype-3-desc': '스캔하여 연결, 비밀번호 불필요',
+                'qrtype-4-title': '전화 QR 코드',
+                'qrtype-4-desc': '국제 코드와 함께 직접 전화',
+                'qrtype-5-title': '이메일 QR 코드',
+                'qrtype-5-desc': '제목과 함께 빠른 이메일 보내기',
+                'qrtype-6-title': '연락처 QR 코드',
+                'qrtype-6-desc': 'vCard 3.0, 연락처에 저장',
+                'screenshots-title': '스크린샷',
+                'features-title': '기능',
+                'feature-1-title': '15개 언어',
+                'feature-1-desc': '중국어, 영어, 일본어, 한국어, 독일어, 프랑스어, 스페인어 등 지원.',
+                'feature-2-title': '로고嵌入',
+                'feature-2-desc': 'QR 코드 중앙에 커스텀 로고를嵌入하여 브랜드 홍보.',
+                'feature-3-title': '색상 사용자 정의',
+                'feature-3-desc': '프리셋 색상 + 사용자 정의 HEX 색상 지원.',
+                'feature-4-title': '간편한 저장 및 공유',
+                'feature-4-desc': '원탭으로 갤러리에 저장, 시스템 공유 시트로 공유.',
+            },
+            'de': {
+                'back-link': 'Alle Apps',
+                'hero-title': 'QR-Code-Ersteller',
+                'hero-subtitle': 'Leistungsstarker QR-Code-Generator mit Text-, URL-, WiFi-, Kontakt-Support. 15 Sprachen.',
+                'badge-1': '15 Sprachen',
+                'badge-2': '6 Typen',
+                'badge-3': 'Logo-Einbettung',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Bei Google Play holen',
+                'btn-apk': 'APK herunterladen',
+                'qrtypes-title': 'Unterstützte QR-Code-Typen',
+                'qrtype-1-title': 'Text-QR-Code',
+                'qrtype-1-desc': 'Klartext, Notizen, beliebige Textinhalte',
+                'qrtype-2-title': 'URL-QR-Code',
+                'qrtype-2-desc': 'HTTP/HTTPS-Links automatisch erkennen',
+                'qrtype-3-title': 'WiFi-QR-Code',
+                'qrtype-3-desc': 'Scannen zum Verbinden, kein Passwort nötig',
+                'qrtype-4-title': 'Telefon-QR-Code',
+                'qrtype-4-desc': 'Direkt anrufen mit internationalen Codes',
+                'qrtype-5-title': 'E-Mail-QR-Code',
+                'qrtype-5-desc': 'Schnell E-Mail mit Betreff senden',
+                'qrtype-6-title': 'Kontakt-QR-Code',
+                'qrtype-6-desc': 'vCard 3.0, in Kontakte speichern',
+                'screenshots-title': 'Screenshots',
+                'features-title': 'Funktionen',
+                'feature-1-title': '15 Sprachen',
+                'feature-1-desc': 'Unterstützung für Chinesisch, Englisch, Japanisch, Koreanisch, Deutsch, Französisch, Spanisch und mehr.',
+                'feature-2-title': 'Logo-Einbettung',
+                'feature-2-desc': 'Benutzerdefiniertes Logo in die Mitte des QR-Codes einbetten.',
+                'feature-3-title': 'Farbanpassung',
+                'feature-3-desc': 'Voreingestellte Farben + benutzerdefinierte HEX-Farbe.',
+                'feature-4-title': 'Einfaches Speichern & Teilen',
+                'feature-4-desc': 'One-Tap-Speichern in Galerie, Teilen über System-Share-Sheet.',
+            },
+            'fr': {
+                'back-link': 'Toutes les apps',
+                'hero-title': 'Créateur de code QR',
+                'hero-subtitle': 'Générateur de code QR puissant avec support texte, URL, WiFi, contact. 15 langues.',
+                'badge-1': '15 langues',
+                'badge-2': '6 types',
+                'badge-3': 'Insertion logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obtenir sur Google Play',
+                'btn-apk': 'Télécharger APK',
+                'qrtypes-title': 'Types de codes QR pris en charge',
+                'qrtype-1-title': 'Code QR texte',
+                'qrtype-1-desc': 'Texte brut, notes, tout contenu textuel',
+                'qrtype-2-title': 'Code QR URL',
+                'qrtype-2-desc': 'Détection automatique des liens HTTP/HTTPS',
+                'qrtype-3-title': 'Code QR WiFi',
+                'qrtype-3-desc': 'Scanner pour connecter, pas de mot de passe',
+                'qrtype-4-title': 'Code QR téléphone',
+                'qrtype-4-desc': 'Appeler directement avec codes internationaux',
+                'qrtype-5-title': 'Code QR email',
+                'qrtype-5-desc': 'Email rapide avec objet',
+                'qrtype-6-title': 'Code QR contact',
+                'qrtype-6-desc': 'vCard 3.0, enregistrer dans contacts',
+                'screenshots-title': 'Captures d\'écran',
+                'features-title': 'Fonctionnalités',
+                'feature-1-title': '15 langues',
+                'feature-1-desc': 'Support du chinois, anglais, japonais, coréen, allemand, français, espagnol et plus.',
+                'feature-2-title': 'Insertion logo',
+                'feature-2-desc': 'Intégrez votre logo personnalisé au centre du code QR.',
+                'feature-3-title': 'Personnalisation des couleurs',
+                'feature-3-desc': 'Couleurs prédéfinies + couleur HEX personnalisée.',
+                'feature-4-title': 'Sauvegarde et partage facile',
+                'feature-4-desc': 'Sauvegarde en un clic dans la galerie, partage via système.',
+            },
+            'es': {
+                'back-link': 'Todas las apps',
+                'hero-title': 'Creador de código QR',
+                'hero-subtitle': 'Potente generador de código QR con soporte de texto, URL, WiFi, contacto. 15 idiomas.',
+                'badge-1': '15 idiomas',
+                'badge-2': '6 tipos',
+                'badge-3': 'Inserción de logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obtener en Google Play',
+                'btn-apk': 'Descargar APK',
+                'qrtypes-title': 'Tipos de código QR compatibles',
+                'qrtype-1-title': 'Código QR de texto',
+                'qrtype-1-desc': 'Texto plano, notas, cualquier contenido de texto',
+                'qrtype-2-title': 'Código QR URL',
+                'qrtype-2-desc': 'Detección automática de enlaces HTTP/HTTPS',
+                'qrtype-3-title': 'Código QR WiFi',
+                'qrtype-3-desc': 'Escanear para conectar, sin contraseña',
+                'qrtype-4-title': 'Código QR de teléfono',
+                'qrtype-4-desc': 'Llamar directamente con códigos internacionales',
+                'qrtype-5-title': 'Código QR de email',
+                'qrtype-5-desc': 'Email rápido con asunto',
+                'qrtype-6-title': 'Código QR de contacto',
+                'qrtype-6-desc': 'vCard 3.0, guardar en contactos',
+                'screenshots-title': 'Capturas de pantalla',
+                'features-title': 'Características',
+                'feature-1-title': '15 idiomas',
+                'feature-1-desc': 'Soporte para chino, inglés, japonés, coreano, alemán, francés, español y más.',
+                'feature-2-title': 'Inserción de logo',
+                'feature-2-desc': 'Inserte su logo personalizado en el centro del código QR.',
+                'feature-3-title': 'Personalización de colores',
+                'feature-3-desc': 'Colores preestablecidos + color HEX personalizado.',
+                'feature-4-title': 'Fácil guardar y compartir',
+                'feature-4-desc': 'Guardar en un clic en galería, compartir mediante sistema.',
+            },
+            'ru': {
+                'back-link': 'Все приложения',
+                'hero-title': 'Генератор QR-кодов',
+                'hero-subtitle': 'Мощный генератор QR-кодов с поддержкой текста, URL, WiFi, контактов. 15 языков.',
+                'badge-1': '15 языков',
+                'badge-2': '6 типов',
+                'badge-3': 'Вставка лого',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Получить в Google Play',
+                'btn-apk': 'Скачать APK',
+                'qrtypes-title': 'Поддерживаемые типы QR-кодов',
+                'qrtype-1-title': 'Текстовый QR-код',
+                'qrtype-1-desc': 'Простой текст, заметки, любой текстовый контент',
+                'qrtype-2-title': 'URL QR-код',
+                'qrtype-2-desc': 'Автоопределение ссылок HTTP/HTTPS',
+                'qrtype-3-title': 'WiFi QR-код',
+                'qrtype-3-desc': 'Сканировать для подключения, без пароля',
+                'qrtype-4-title': 'Телефонный QR-код',
+                'qrtype-4-desc': 'Прямой звонок с международными кодами',
+                'qrtype-5-title': 'Email QR-код',
+                'qrtype-5-desc': 'Быстрое письмо с темой',
+                'qrtype-6-title': 'Контактный QR-код',
+                'qrtype-6-desc': 'vCard 3.0, сохранить в контакты',
+                'screenshots-title': 'Скриншоты',
+                'features-title': 'Функции',
+                'feature-1-title': '15 языков',
+                'feature-1-desc': 'Поддержка китайского, английского, японского, корейского, немецкого, французского, испанского и др.',
+                'feature-2-title': 'Вставка лого',
+                'feature-2-desc': 'Вставьте свой логотип в центр QR-кода для брендинга.',
+                'feature-3-title': 'Настройка цветов',
+                'feature-3-desc': 'Предустановленные цвета + пользовательский HEX-цвет.',
+                'feature-4-title': 'Легкое сохранение и分享',
+                'feature-4-desc': 'Одно касание для сохранения в галерею, через системный шеринг.',
+            },
+            'pt': {
+                'back-link': 'Todos os apps',
+                'hero-title': 'Criador de código QR',
+                'hero-subtitle': 'Poderoso gerador de código QR com suporte a texto, URL, WiFi, contato. 15 idiomas.',
+                'badge-1': '15 idiomas',
+                'badge-2': '6 tipos',
+                'badge-3': 'Inserção de logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obter no Google Play',
+                'btn-apk': 'Baixar APK',
+                'qrtypes-title': 'Tipos de código QR suportados',
+                'qrtype-1-title': 'Código QR de texto',
+                'qrtype-1-desc': 'Texto simples, notas, qualquer conteúdo de texto',
+                'qrtype-2-title': 'Código QR de URL',
+                'qrtype-2-desc': 'Detecção automática de links HTTP/HTTPS',
+                'qrtype-3-title': 'Código QR de WiFi',
+                'qrtype-3-desc': 'Escanear para conectar, sem senha',
+                'qrtype-4-title': 'Código QR de telefone',
+                'qrtype-4-desc': 'Ligar diretamente com códigos internacionais',
+                'qrtype-5-title': 'Código QR de email',
+                'qrtype-5-desc': 'Email rápido com assunto',
+                'qrtype-6-title': 'Código QR de contato',
+                'qrtype-6-desc': 'vCard 3.0, salvar em contatos',
+                'screenshots-title': 'Capturas de tela',
+                'features-title': 'Recursos',
+                'feature-1-title': '15 idiomas',
+                'feature-1-desc': 'Suporte para chinês, inglês, japonês, coreano, alemão, francês, espanhol e mais.',
+                'feature-2-title': 'Inserção de logo',
+                'feature-2-desc': 'Insira seu logo personalizado no centro do código QR.',
+                'feature-3-title': 'Personalização de cores',
+                'feature-3-desc': 'Cores predefinidas + cor HEX personalizada.',
+                'feature-4-title': 'Fácil salvar e compartilhar',
+                'feature-4-desc': 'Um toque para salvar na galeria, compartilhar via sistema.',
+            },
+            'tr': {
+                'back-link': 'Tüm uygulamalar',
+                'hero-title': 'QR Kod Oluşturucu',
+                'hero-subtitle': 'Metin, URL, WiFi, kişi desteğiyle güçlü QR kod oluşturucu. 15 dil.',
+                'badge-1': '15 dil',
+                'badge-2': '6 tip',
+                'badge-3': 'Logo ekleme',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play\'den al',
+                'btn-apk': 'APK indir',
+                'qrtypes-title': 'Desteklenen QR kod türleri',
+                'qrtype-1-title': 'Metin QR kodu',
+                'qrtype-1-desc': 'Düz metin, notlar, herhangi bir metin içeriği',
+                'qrtype-2-title': 'URL QR kodu',
+                'qrtype-2-desc': 'HTTP/HTTPS bağlantılarını otomatik algılama',
+                'qrtype-3-title': 'WiFi QR kodu',
+                'qrtype-3-desc': 'Bağlanmak için tarama, şifre gerekmez',
+                'qrtype-4-title': 'Telefon QR kodu',
+                'qrtype-4-desc': 'Uluslararası kodlarla doğrudan arama',
+                'qrtype-5-title': 'E-posta QR kodu',
+                'qrtype-5-desc': 'Konu ile hızlı e-posta gönderme',
+                'qrtype-6-title': 'Kişi QR kodu',
+                'qrtype-6-desc': 'vCard 3.0, kişilere kaydetme',
+                'screenshots-title': 'Ekran görüntüleri',
+                'features-title': 'Özellikler',
+                'feature-1-title': '15 dil',
+                'feature-1-desc': 'Çince, İngilizce, Japonca, Korece, Almanca, Fransızca, İspanyolca ve daha fazlası destek.',
+                'feature-2-title': 'Logo ekleme',
+                'feature-2-desc': 'QR kodunun ortasına özel logo ekleyin.',
+                'feature-3-title': 'Renk özelleştirme',
+                'feature-3-desc': 'Ön ayarlı renkler + özel HEX rengi.',
+                'feature-4-title': 'Kolay kaydetme ve paylaşma',
+                'feature-4-desc': 'Galeriye tek dokunuşla kaydetme, sistem paylaşımı ile paylaşma.',
+            },
+            'hi': {
+                'back-link': 'सभी ऐप्स',
+                'hero-title': 'QR कोड क्रिएटर',
+                'hero-subtitle': 'टेक्स्ट, URL, WiFi, कॉन्टैक्ट सपोर्ट के साथ शक्तिशाली QR कोड जनरेटर। 15 भाषाएं।',
+                'badge-1': '15 भाषाएं',
+                'badge-2': '6 प्रकार',
+                'badge-3': 'लोगो एम्बेड',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play पर प्राप्त करें',
+                'btn-apk': 'APK डाउनलोड करें',
+                'qrtypes-title': 'समर्थित QR कोड प्रकार',
+                'qrtype-1-title': 'टेक्स्ट QR कोड',
+                'qrtype-1-desc': 'सादा टेक्स्ट, नोट्स, कोई भी टेक्स्ट सामग्री',
+                'qrtype-2-title': 'URL QR कोड',
+                'qrtype-2-desc': 'HTTP/HTTPS लिंक ऑटो-डिटेक्ट',
+                'qrtype-3-title': 'WiFi QR कोड',
+                'qrtype-3-desc': 'कनेक्ट करने के लिए स्कैन, पासवर्ड की जरूरत नहीं',
+                'qrtype-4-title': 'फोन QR कोड',
+                'qrtype-4-desc': 'इंटरनेशनल कोड के साथ सीधी कॉल',
+                'qrtype-5-title': 'ईमेल QR कोड',
+                'qrtype-5-desc': 'विषय के साथ तेज ईमेल',
+                'qrtype-6-title': 'कॉन्टैक्ट QR कोड',
+                'qrtype-6-desc': 'vCard 3.0, कॉन्टैक्ट में सेव करें',
+                'screenshots-title': 'स्क्रीनशॉट',
+                'features-title': 'विशेषताएं',
+                'feature-1-title': '15 भाषाएं',
+                'feature-1-desc': 'चीनी, अंग्रेजी, जापानी, कोरियाई, जर्मन, फ्रेंच, स्पेनिश और अधिक समर्थन।',
+                'feature-2-title': 'लोगो एम्बेड',
+                'feature-2-desc': 'ब्रांडिंग के लिए QR कोड के केंद्र में अपना कस्टम लोगो एम्बेड करें।',
+                'feature-3-title': 'रंग अनुकूलन',
+                'feature-3-desc': 'प्रीसेट रंग + कस्टम HEX रंग।',
+                'feature-4-title': 'आसान सेव और शेयर',
+                'feature-4-desc': 'गैलरी में वन-टैप सेव, सिस्टम शेयर शीट से शेयर।',
+            },
+            'id': {
+                'back-link': 'Semua aplikasi',
+                'hero-title': 'Pembuat QR code',
+                'hero-subtitle': 'Pembuat QR code yang kuat dengan dukungan teks, URL, WiFi, kontak. 15 bahasa.',
+                'badge-1': '15 bahasa',
+                'badge-2': '6 jenis',
+                'badge-3': 'Sisipkan logo',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Dapatkan di Google Play',
+                'btn-apk': 'Unduh APK',
+                'qrtypes-title': 'Jenis QR code yang didukung',
+                'qrtype-1-title': 'QR code teks',
+                'qrtype-1-desc': 'Teks biasa, catatan, konten teks apapun',
+                'qrtype-2-title': 'QR code URL',
+                'qrtype-2-desc': 'Deteksi otomatis link HTTP/HTTPS',
+                'qrtype-3-title': 'QR code WiFi',
+                'qrtype-3-desc': 'Pindai untuk terhubung, tanpa kata sandi',
+                'qrtype-4-title': 'QR code telepon',
+                'qrtype-4-desc': 'Hubungi langsung dengan kode internasional',
+                'qrtype-5-title': 'QR code email',
+                'qrtype-5-desc': 'Email cepat dengan subjek',
+                'qrtype-6-title': 'QR code kontak',
+                'qrtype-6-desc': 'vCard 3.0, simpan ke kontak',
+                'screenshots-title': 'Tangkapan layar',
+                'features-title': 'Fitur',
+                'feature-1-title': '15 bahasa',
+                'feature-1-desc': 'Dukungan untuk Mandarin, Inggris, Jepang, Korea, Jerman, Prancis, Spanyol dan lainnya.',
+                'feature-2-title': 'Sisipkan logo',
+                'feature-2-desc': 'Sisipkan logo kustom Anda di tengah QR code untuk branding.',
+                'feature-3-title': 'Kustomisasi warna',
+                'feature-3-desc': 'Warna preset + warna HEX kustom.',
+                'feature-4-title': 'Mudah simpan & bagikan',
+                'feature-4-desc': 'Simpan satu ketukan ke galeri, bagikan melalui sistem.',
+            }
+        };
+
+        function getCurrentLang() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang');
+            if (!lang) {
+                lang = localStorage.getItem('selectedLang') || 'auto';
+            }
+            if (lang === 'auto') {
+                const browserLang = navigator.language || navigator.userLanguage;
+                lang = browserLang.startsWith('zh') ? (browserLang === 'zh-TW' || browserLang === 'zh-HK' ? 'zh-TW' : 'zh-CN') : 
+                       browserLang.split('-')[0];
+                const langMap = {'en': 'en', 'ja': 'ja', 'ko': 'ko', 'de': 'de', 'fr': 'fr', 'es': 'es', 'ru': 'ru', 'pt': 'pt', 'tr': 'tr', 'hi': 'hi', 'id': 'id'};
+                lang = langMap[lang] || 'en';
+            }
+            return lang;
+        }
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selectedLang', lang);
+            const currentUrl = window.location.href.split('?')[0];
+            if (lang === 'auto') {
+                window.location.href = currentUrl;
+            } else {
+                window.location.href = currentUrl + '?lang=' + lang;
+            }
+        }
+
+        function applyTranslations() {
+            const lang = getCurrentLang();
+            if (lang === 'en' || !translations[lang]) return;
+
+            const t = translations[lang];
+            
+            // Back link
+            const backLinkSpan = document.querySelector('.back-link span');
+            if (backLinkSpan && t['back-link']) backLinkSpan.textContent = t['back-link'];
+            
+            // Hero
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle && t['hero-title']) heroTitle.textContent = t['hero-title'];
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroSubtitle && t['hero-subtitle']) heroSubtitle.textContent = t['hero-subtitle'];
+            
+            // Badges
+            const badges = document.querySelectorAll('.badge');
+            if (t['badge-1'] && badges[0]) badges[0].textContent = t['badge-1'];
+            if (t['badge-2'] && badges[1]) badges[1].textContent = t['badge-2'];
+            if (t['badge-3'] && badges[2]) badges[2].textContent = t['badge-3'];
+            if (t['badge-4'] && badges[3]) badges[3].textContent = t['badge-4'];
+            
+            // Download buttons
+            const btnPlay = document.querySelector('.btn-play');
+            if (btnPlay && t['btn-play']) btnPlay.innerHTML = btnPlay.innerHTML.replace(/Get on Google Play/, t['btn-play']);
+            const btnApk = document.querySelector('.btn-apk');
+            if (btnApk && t['btn-apk']) btnApk.innerHTML = btnApk.innerHTML.replace(/Download APK/, t['btn-apk']);
+            
+            // QR Types section title
+            const qrtypesTitle = document.querySelector('.qrtypes-section h2');
+            if (qrtypesTitle && t['qrtypes-title']) qrtypesTitle.textContent = t['qrtypes-title'];
+            
+            // QR Type cards
+            const qrtypeCards = document.querySelectorAll('.qrtype-card');
+            if (qrtypeCards.length >= 6) {
+                if (t['qrtype-1-title']) qrtypeCards[0].querySelector('h4').textContent = t['qrtype-1-title'];
+                if (t['qrtype-1-desc']) qrtypeCards[0].querySelector('p').textContent = t['qrtype-1-desc'];
+                if (t['qrtype-2-title']) qrtypeCards[1].querySelector('h4').textContent = t['qrtype-2-title'];
+                if (t['qrtype-2-desc']) qrtypeCards[1].querySelector('p').textContent = t['qrtype-2-desc'];
+                if (t['qrtype-3-title']) qrtypeCards[2].querySelector('h4').textContent = t['qrtype-3-title'];
+                if (t['qrtype-3-desc']) qrtypeCards[2].querySelector('p').textContent = t['qrtype-3-desc'];
+                if (t['qrtype-4-title']) qrtypeCards[3].querySelector('h4').textContent = t['qrtype-4-title'];
+                if (t['qrtype-4-desc']) qrtypeCards[3].querySelector('p').textContent = t['qrtype-4-desc'];
+                if (t['qrtype-5-title']) qrtypeCards[4].querySelector('h4').textContent = t['qrtype-5-title'];
+                if (t['qrtype-5-desc']) qrtypeCards[4].querySelector('p').textContent = t['qrtype-5-desc'];
+                if (t['qrtype-6-title']) qrtypeCards[5].querySelector('h4').textContent = t['qrtype-6-title'];
+                if (t['qrtype-6-desc']) qrtypeCards[5].querySelector('p').textContent = t['qrtype-6-desc'];
+            }
+            
+            // Screenshots
+            const screenshotsTitle = document.querySelector('.screenshots-grid').previousElementSibling;
+            if (screenshotsTitle && t['screenshots-title']) screenshotsTitle.textContent = t['screenshots-title'];
+            
+            // Features
+            const featuresTitle = document.querySelector('.features-grid').previousElementSibling;
+            if (featuresTitle && t['features-title']) featuresTitle.textContent = t['features-title'];
+            
+            const featureCards = document.querySelectorAll('.feature-card');
+            if (featureCards.length >= 4) {
+                if (t['feature-1-title']) featureCards[0].querySelector('h3').textContent = t['feature-1-title'];
+                if (t['feature-1-desc']) featureCards[0].querySelector('p').textContent = t['feature-1-desc'];
+                if (t['feature-2-title']) featureCards[1].querySelector('h3').textContent = t['feature-2-title'];
+                if (t['feature-2-desc']) featureCards[1].querySelector('p').textContent = t['feature-2-desc'];
+                if (t['feature-3-title']) featureCards[2].querySelector('h3').textContent = t['feature-3-title'];
+                if (t['feature-3-desc']) featureCards[2].querySelector('p').textContent = t['feature-3-desc'];
+                if (t['feature-4-title']) featureCards[3].querySelector('h3').textContent = t['feature-4-title'];
+                if (t['feature-4-desc']) featureCards[3].querySelector('p').textContent = t['feature-4-desc'];
+            }
+            
+            // Update lang selector
+            const langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = lang;
+        }
+
+        document.addEventListener('DOMContentLoaded', applyTranslations);
+    </script>
+</body>
+</html>

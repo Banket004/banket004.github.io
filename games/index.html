@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuessNumber - Classic Number Guessing Game - APK Download</title>
+    <meta name="description" content="GuessNumber is a classic number guessing puzzle game. Deduce the secret number within limited attempts. Supports 13 languages, 3 difficulty levels, and leaderboards.">
+    <meta name="keywords" content="guess number, number guessing game, puzzle game, android game, brain game, mastermind game, 猜数字, 数字游戏, 益智游戏">
+    <link rel="canonical" href="https://banket004.github.io/games/">
+    <link rel="alternate" hreflang="en" href="https://banket004.github.io/games/">
+    <link rel="alternate" hreflang="zh-CN" href="https://banket004.github.io/games/?lang=zh-CN">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0EA5E9;
+            --primary-dark: #0284C7;
+            --secondary: #38BDF8;
+            --cta: #F97316;
+            --bg: #F0F9FF;
+            --bg-white: #FFFFFF;
+            --text: #0C4A6E;
+            --text-muted: #64748B;
+            --border: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 16px 24px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--primary);
+        }
+
+        .back-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-selector select {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            color: var(--text);
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .lang-selector select:hover {
+            border-color: var(--primary);
+        }
+
+        .lang-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lang-selector select {
+            padding: 8px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: white;
+            color: var(--text);
+            font-size: 0.9rem;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .lang-selector select:hover {
+            border-color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .hero-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 26px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .download-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-play {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-play:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .btn-apk {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-apk:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
+
+        .btn svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 60px 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Screenshots */
+        .screenshots-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .screenshot {
+            width: 200px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Rules */
+        .rules-section {
+            background: white;
+            padding: 60px 24px;
+        }
+
+        .rules-content {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg);
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .rules-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rule-number {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 24px;
+            text-align: center;
+            background: var(--text);
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            .screenshot {
+                width: 160px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .lang-selector {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="https://banket004.github.io/" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>All Apps</span>
+            </a>
+            <a href="https://banket004.github.io/" class="logo">AndroidApps</a>
+            <div class="lang-selector">
+                <select id="langSelect" onchange="changeLanguage(this.value)">
+                    <option value="auto">🌐 Auto</option>
+                    <option value="en">English</option>
+                    <option value="zh-CN">简体中文</option>
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="de">Deutsch</option>
+                    <option value="fr">Français</option>
+                    <option value="es">Español</option>
+                    <option value="ru">Русский</option>
+                    <option value="pt">Português</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="id">Bahasa Indonesia</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <img src="ic_launcher.png" alt="GuessNumber App Icon" class="app-icon fade-in">
+            <h1 class="fade-in">GuessNumber</h1>
+            <p class="hero-subtitle fade-in">A classic number guessing puzzle game. Deduce the secret number within limited attempts!</p>
+            
+            <div class="badge-container fade-in">
+                <span class="badge">13 Languages</span>
+                <span class="badge">3 Difficulty Levels</span>
+                <span class="badge">Leaderboards</span>
+                <span class="badge">Material Design 3</span>
+            </div>
+            
+            <div class="download-buttons fade-in">
+                <a href="https://play.google.com/store/apps/details?id=com.wetalk.game.guessnumber" class="btn btn-play" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+                    </svg>
+                    Get on Google Play
+                </a>
+                <a href="com.wetalk.game.guessnumber_blogweb.apk" class="btn btn-apk" download>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    Download APK
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="section">
+        <h2 class="section-title">Screenshots</h2>
+        <div class="screenshots-grid">
+            <img src="screenshot1.png" alt="GuessNumber Screenshot 1" class="screenshot">
+            <img src="screenshot2.png" alt="GuessNumber Screenshot 2" class="screenshot">
+            <img src="screenshot3.png" alt="GuessNumber Screenshot 3" class="screenshot">
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section">
+        <h2 class="section-title">Features</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+                <h3>13 Languages</h3>
+                <p>Support for Chinese, English, Japanese, Korean, German, French, Spanish, Russian, Portuguese, Turkish, Hindi, Indonesian.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+                <h3>3 Difficulty Levels</h3>
+                <p>Beginner (4 digits), Intermediate (5 digits), and Ultimate (6 digits) challenges for all skill levels.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                    <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                    <path d="M4 22h16"/>
+                    <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                    <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                    <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                </svg>
+                <h3>Leaderboards</h3>
+                <p>Compete with yourself! Track your best scores and climb to the top of each difficulty level.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="3" y1="9" x2="21" y2="9"/>
+                    <line x1="9" y1="21" x2="9" y2="9"/>
+                </svg>
+                <h3>Modern UI</h3>
+                <p>Built with Jetpack Compose and Material Design 3 for a smooth, beautiful experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Rules -->
+    <section class="rules-section">
+        <div class="section">
+            <h2 class="section-title">How to Play</h2>
+            <div class="rules-content">
+                <ol class="rules-list">
+                    <li>
+                        <span class="rule-number">1</span>
+                        <span>The secret number consists of non-repeating digits</span>
+                    </li>
+                    <li>
+                        <span class="rule-number">2</span>
+                        <span>Enter your guess using the number keyboard</span>
+                    </li>
+                    <li>
+                        <span class="rule-number">3</span>
+                        <span>Results show <span class="highlight">AxB</span> format:<br><span class="highlight">A</span> = Correct digit in correct position<br><span class="highlight">B</span> = Correct digit but wrong position</span>
+                    </li>
+                    <li>
+                        <span class="rule-number">4</span>
+                        <span>Example: "1234 = 2A1B" means 2 digits are correct in the right position, 1 digit is correct but in the wrong position</span>
+                    </li>
+                    <li>
+                        <span class="rule-number">5</span>
+                        <span>Win by getting <span class="highlight">4A0B</span> (Beginner), <span class="highlight">5A0B</span> (Intermediate), or <span class="highlight">6A0B</span> (Ultimate)!</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 GuessNumber. All Rights Reserved.</p>
+        <p>Contact: <a href="mailto:l.cooky.chan@gmail.com">l.cooky.chan@gmail.com</a></p>
+    </footer>
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "GuessNumber",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Android",
+        "description": "A classic number guessing puzzle game. Deduce the secret number within limited attempts!",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "ratingCount": "100"
+        }
+    }
+    </script>
+
+    <script>
+        const translations = {
+            'zh-CN': {
+                'back-link': '所有应用',
+                'hero-title': '猜数字',
+                'hero-subtitle': '经典的数字猜谜游戏。在有限的尝试次数内推断出神秘数字！',
+                'badge-1': '13种语言',
+                'badge-2': '3个难度',
+                'badge-3': '排行榜',
+                'badge-4': 'Material Design 3',
+                'btn-play': '在 Google Play 获取',
+                'btn-apk': '下载 APK',
+                'screenshots-title': '截图',
+                'features-title': '功能特点',
+                'feature-1-title': '13种语言',
+                'feature-1-desc': '支持中文、英文、日语、韩语、德语、法语、西班牙语、俄语、葡萄牙语、土耳其语、印地语、印尼语。',
+                'feature-2-title': '3个难度级别',
+                'feature-2-desc': '初级（4位）、中级（5位）和终极（6位）挑战，适合所有技能水平。',
+                'feature-3-title': '排行榜',
+                'feature-3-desc': '与自己竞争！追踪最佳成绩，攀登每个难度等级的榜首。',
+                'feature-4-title': '现代界面',
+                'feature-4-desc': '使用 Jetpack Compose 和 Material Design 3 构建，提供流畅、美丽的体验。',
+                'rules-title': '游戏规则',
+                'rule-1': '神秘数字由不重复的数字组成',
+                'rule-2': '使用数字键盘输入你的猜测',
+                'rule-3': '结果显示 AxB 格式：<br>A = 正确位置的正确数字<br>B = 正确但位置错误的数字',
+                'rule-4': '例如："1234 = 2A1B" 表示2个数字位置正确，1个数字正确但位置错误',
+                'rule-5': '获得 4A0B（初级）、5A0B（中极）或 6A0B（终极）即为获胜！',
+            },
+            'zh-TW': {
+                'back-link': '所有應用',
+                'hero-title': '猜數字',
+                'hero-subtitle': '經典的數字猜謎遊戲。在有限的嘗試次數內推斷出神秘數字！',
+                'badge-1': '13種語言',
+                'badge-2': '3個難度',
+                'badge-3': '排行榜',
+                'badge-4': 'Material Design 3',
+                'btn-play': '在 Google Play 獲取',
+                'btn-apk': '下載 APK',
+                'screenshots-title': '截圖',
+                'features-title': '功能特點',
+                'feature-1-title': '13種語言',
+                'feature-1-desc': '支援中文、英文、日語、韓語、德語、法語、西班牙語、俄語、葡萄牙語、土耳其語、印地語、印尼語。',
+                'feature-2-title': '3個難度級別',
+                'feature-2-desc': '初級（4位）、中級（5位）和終極（6位）挑戰，適合所有技能水平。',
+                'feature-3-title': '排行榜',
+                'feature-3-desc': '與自己競爭！追蹤最佳成績，攀登每個難度等級的榜首。',
+                'feature-4-title': '現代界面',
+                'feature-4-desc': '使用 Jetpack Compose 和 Material Design 3 構建，提供流暢、美麗的體驗。',
+                'rules-title': '遊戲規則',
+                'rule-1': '神秘數字由不重複的數字組成',
+                'rule-2': '使用數字鍵盤輸入你的猜測',
+                'rule-3': '結果顯示 AxB 格式：<br>A = 正確位置的正確數字<br>B = 正確但位置錯誤的數字',
+                'rule-4': '例如："1234 = 2A1B" 表示2個數字位置正確，1個數字正確但位置錯誤',
+                'rule-5': '獲得 4A0B（初級）、5A0B（中級）或 6A0B（終極）即為獲勝！',
+            },
+            'ja': {
+                'back-link': 'すべてのアプリ',
+                'hero-title': '数字当てゲーム',
+                'hero-subtitle': '古典的な数字推理パズルゲーム。限られた回数で秘密の数字を当てよう！',
+                'badge-1': '13言語',
+                'badge-2': '3難易度',
+                'badge-3': 'リーダーボード',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play で入手',
+                'btn-apk': 'APK ダウンロード',
+                'screenshots-title': 'スクリーンショット',
+                'features-title': '機能',
+                'feature-1-title': '13言語',
+                'feature-1-desc': '中国語、英语、日本語、韓国語、ドイツ語、フランス語 испан語ロシア語、ポルトガル語、トルコ語、ヒンディー語、インドネシア語をサポート。',
+                'feature-2-title': '3つの難易度',
+                'feature-2-desc': '初級（4桁）、中級（5桁）、究極（6桁）の挑戦。',
+                'feature-3-title': 'リーダーボード',
+                'feature-3-desc': '自分と競争！最高スコアを追跡し、各難易度でトップを目指そう。',
+                'feature-4-title': 'モダンUI',
+                'feature-4-desc': 'Jetpack ComposeとMaterial Design 3で構築されたスムーズで美しい体験。',
+                'rules-title': '遊び方',
+                'rule-1': '秘密の数字は重複しない数字で構成されます',
+                'rule-2': '数字キーボードで予想を入力',
+                'rule-3': '結果はAxB形式：<br>A = 正しい位置的正しい数字<br>B = 正しい位置的 잘못된数字',
+                'rule-4': '例："1234 = 2A1B" は2つの数字が正しい位置、1つの数字が正しいだが位置的错误',
+                'rule-5': '4A0B（初級）、5A0B（中級）、6A0B（究極）で勝利！',
+            },
+            'ko': {
+                'back-link': '모든 앱',
+                'hero-title': '숫자 맞추기 게임',
+                'hero-subtitle': '클래식 숫자 추리 게임. 제한된 시도 횟수 내에서 비밀 숫자를 맞춰보세요!',
+                'badge-1': '13개 언어',
+                'badge-2': '3단계 난이도',
+                'badge-3': '리더보드',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play에서 받기',
+                'btn-apk': 'APK 다운로드',
+                'screenshots-title': '스크린샷',
+                'features-title': '기능',
+                'feature-1-title': '13개 언어',
+                'feature-1-desc': '중국어, 영어, 일본어, 한국어, 독일어, 프랑스어, 스페인어, 러시아어, 포르투갈어, 터키어, 힌디어, 인도네시아어 지원.',
+                'feature-2-title': '3단계 난이도',
+                'feature-2-desc': '초급(4자리), 중급(5자리), 상급(6자리) 도전.',
+                'feature-3-title': '리더보드',
+                'feature-3-desc': '자自己和 경쟁! 최고 점수를 추적하고 각 난이도에서 1등을 목표로 하세요.',
+                'feature-4-title': '모던 UI',
+                'feature-4-desc': 'Jetpack Compose와 Material Design 3으로 구축된 부드럽고 아름다운 경험.',
+                'rules-title': '게임 규칙',
+                'rule-1': '비밀 숫자는 중복되지 않는 숫자로 구성됩니다',
+                'rule-2': '숫자 키패드를 사용하여 추측을 입력하세요',
+                'rule-3': '결과는 AxB 형식으로 표시:<br>A = 올바른 위치의 올바른 숫자<br>B = 올바른 숫자但 위치 잘못',
+                'rule-4': '예: "1234 = 2A1B"는 2개의 숫자가 올바른 위치, 1개의 숫자가 올바른但 위치錯誤',
+                'rule-5': '4A0B(초급), 5A0B(중급), 6A0B(상급)에서 승리!',
+            },
+            'de': {
+                'back-link': 'Alle Apps',
+                'hero-title': 'Zahlenratespiel',
+                'hero-subtitle': 'Ein klassisches Zahlenratespiel. Errate die geheime Zahl in begrenzten Versuchen!',
+                'badge-1': '13 Sprachen',
+                'badge-2': '3 Schwierigkeiten',
+                'badge-3': 'Bestenliste',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Bei Google Play holen',
+                'btn-apk': 'APK herunterladen',
+                'screenshots-title': 'Screenshots',
+                'features-title': 'Funktionen',
+                'feature-1-title': '13 Sprachen',
+                'feature-1-desc': 'Unterstützung für Chinesisch, Englisch, Japanisch, Koreanisch, Deutsch, Französisch, Spanisch, Russisch, Portugiesisch, Türkisch, Hindi, Indonesisch.',
+                'feature-2-title': '3 Schwierigkeitsstufen',
+                'feature-2-desc': 'Anfänger (4 Ziffern), Fortgeschritten (5 Ziffern) und Ultimativ (6 Ziffern) Herausforderungen.',
+                'feature-3-title': 'Bestenlisten',
+                'feature-3-desc': 'Konkurriere mit dir selbst! Verfolge deine besten Ergebnisse und erklimme die Spitze.',
+                'feature-4-title': 'Modernes UI',
+                'feature-4-desc': 'Erstellt mit Jetpack Compose und Material Design 3 für ein flüssiges, schönes Erlebnis.',
+                'rules-title': 'Spielregeln',
+                'rule-1': 'Die geheime Zahl besteht aus nicht wiederholenden Ziffern',
+                'rule-2': 'Geben Sie Ihre Vermutung über die Tastatur ein',
+                'rule-3': 'Ergebnisse zeigen AxB Format:<br>A = Richtige Ziffer an richtiger Position<br>B = Richtige Ziffer an falscher Position',
+                'rule-4': 'Beispiel: "1234 = 2A1B" bedeutet 2 Ziffern an richtiger Position, 1 Ziffer richtig aber an falscher Position',
+                'rule-5': 'Gewinnen Sie mit 4A0B (Anfänger), 5A0B (Fortgeschritten) oder 6A0B (Ultimativ)!',
+            },
+            'fr': {
+                'back-link': 'Toutes les apps',
+                'hero-title': 'Jeu de devinette de nombres',
+                'hero-subtitle': 'Un jeu de devinette de nombres classique. Déduisez le nombre secret en un nombre limité de tentatives!',
+                'badge-1': '13 langues',
+                'badge-2': '3 difficultés',
+                'badge-3': 'Classements',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obtenir sur Google Play',
+                'btn-apk': 'Télécharger APK',
+                'screenshots-title': 'Captures d\'écran',
+                'features-title': 'Fonctionnalités',
+                'feature-1-title': '13 langues',
+                'feature-1-desc': 'Support du chinois, anglais, japonais, coréen, allemand, français, espagnol, russe, portugais, turc, hindi, indonésien.',
+                'feature-2-title': '3 niveaux de difficulté',
+                'feature-2-desc': 'Débutant (4 chiffres), Intermédiaire (5 chiffres) et Ultime (6 chiffres).',
+                'feature-3-title': 'Classements',
+                'feature-3-desc': 'Concurez avec vous-même!Suivez vos meilleurs scores et atteignez le sommet.',
+                'feature-4-title': 'UI moderne',
+                'feature-4-desc': 'Construit avec Jetpack Compose et Material Design 3 pour une expérience fluide et belle.',
+                'rules-title': 'Règles du jeu',
+                'rule-1': 'Le nombre secret est composé de chiffres non répétitifs',
+                'rule-2': 'Entrez votre supposition avec le clavier numérique',
+                'rule-3': 'Les résultats montrent le format AxB:<br>A = Chiffre correct à la bonne position<br>B = Chiffre correct mais à la mauvaise position',
+                'rule-4': 'Exemple: "1234 = 2A1B" signifie 2 chiffres à la bonne position, 1 chiffre correct mais à la mauvaise position',
+                'rule-5': 'Gagnez avec 4A0B (Débutant), 5A0B (Intermédiaire) ou 6A0B (Ultime)!',
+            },
+            'es': {
+                'back-link': 'Todas las apps',
+                'hero-title': 'Juego de adivinanza de números',
+                'hero-subtitle': 'Un juego clásico de adivinanzas numéricas. ¡Deduce el número secreto en intentos limitados!',
+                'badge-1': '13 idiomas',
+                'badge-2': '3 dificultades',
+                'badge-3': 'Clasificaciones',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obtener en Google Play',
+                'btn-apk': 'Descargar APK',
+                'screenshots-title': 'Capturas de pantalla',
+                'features-title': 'Características',
+                'feature-1-title': '13 idiomas',
+                'feature-1-desc': 'Soporte para chino, inglés, japonés, coreano, alemán, francés, español, ruso, portugués, turco, hindi, indonesio.',
+                'feature-2-title': '3 niveles de dificultad',
+                'feature-2-desc': 'Principiante (4 dígitos), Intermedio (5 dígitos) y Avanzado (6 dígitos).',
+                'feature-3-title': 'Clasificaciones',
+                'feature-3-desc': '¡Compite contigo mismo! Rastrea tus mejores puntuaciones y sube a la cima.',
+                'feature-4-title': 'UI moderna',
+                'feature-4-desc': 'Construido con Jetpack Compose y Material Design 3 para una experiencia fluida y hermosa.',
+                'rules-title': 'Reglas del juego',
+                'rule-1': 'El número secreto consiste en dígitos no repetidos',
+                'rule-2': 'Ingresa tu suposición usando el teclado numérico',
+                'rule-3': 'Los resultados muestran formato AxB:<br>A = Dígito correcto en posición correcta<br>B = Dígito correcto pero en posición incorrecta',
+                'rule-4': 'Ejemplo: "1234 = 2A1B" significa 2 dígitos en posición correcta, 1 dígito correcto pero en posición incorrecta',
+                'rule-5': '¡Gana con 4A0B (Principiante), 5A0B (Intermedio) o 6A0B (Avanzado)!',
+            },
+            'ru': {
+                'back-link': 'Все приложения',
+                'hero-title': 'Игра в угадывание чисел',
+                'hero-subtitle': 'Классическая игра в угадывание чисел. Угадайте секретное число за ограниченное количество попыток!',
+                'badge-1': '13 языков',
+                'badge-2': '3 уровня сложности',
+                'badge-3': 'Таблицы лидеров',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Получить в Google Play',
+                'btn-apk': 'Скачать APK',
+                'screenshots-title': 'Скриншоты',
+                'features-title': 'Функции',
+                'feature-1-title': '13 языков',
+                'feature-1-desc': 'Поддержка китайского, английского, японского, корейского, немецкого, французского, испанского, русского, португальского, турецкого, хинди, индонезийского.',
+                'feature-2-title': '3 уровня сложности',
+                'feature-2-desc': 'Начинающий (4 цифры), Средний (5 цифр) и Продвинутый (6 цифр).',
+                'feature-3-title': 'Таблицы лидеров',
+                'feature-3-desc': 'Соревнуйтесь с собой! Отслеживайте лучшие результаты и достигайте вершины.',
+                'feature-4-title': 'Современный UI',
+                'feature-4-desc': 'Создано с Jetpack Compose и Material Design 3 для плавного и красивого опыта.',
+                'rules-title': 'Правила игры',
+                'rule-1': 'Секретное число состоит из неповторяющихся цифр',
+                'rule-2': 'Введите предположение с помощью цифровой клавиатуры',
+                'rule-3': 'Результаты показывают формат AxB:<br>A = Правильная цифра на правильной позиции<br>B = Правильная цифра на неправильной позиции',
+                'rule-4': 'Пример: "1234 = 2A1B" означает 2 цифры на правильной позиции, 1 цифра правильная но на неправильной позиции',
+                'rule-5': 'Победите с 4A0B (Начинающий), 5A0B (Средний) или 6A0B (Продвинутый)!',
+            },
+            'pt': {
+                'back-link': 'Todos os apps',
+                'hero-title': 'Jogo de adivinhação de números',
+                'hero-subtitle': 'Um jogo clássico de adivinhação de números. deduza o número secreto em tentativas limitadas!',
+                'badge-1': '13 idiomas',
+                'badge-2': '3 dificuldades',
+                'badge-3': 'Classificações',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Obter no Google Play',
+                'btn-apk': 'Baixar APK',
+                'screenshots-title': 'Capturas de tela',
+                'features-title': 'Recursos',
+                'feature-1-title': '13 idiomas',
+                'feature-1-desc': 'Suporte para chinês, inglês, japonês, coreano, alemão, francês, espanhol, russo, português, turco, hindi, indonésio.',
+                'feature-2-title': '3 níveis de dificuldade',
+                'feature-2-desc': 'Iniciante (4 dígitos), Intermediário (5 dígitos) e Avançado (6 dígitos).',
+                'feature-3-title': 'Classificações',
+                'feature-3-desc': 'Compita consigo mesmo! Acompanhe suas melhores pontuações e suba ao topo.',
+                'feature-4-title': 'UI moderna',
+                'feature-4-desc': 'Construído com Jetpack Compose e Material Design 3 para uma experiência suave e bonita.',
+                'rules-title': 'Regras do jogo',
+                'rule-1': 'O número secreto consiste em dígitos não repetidos',
+                'rule-2': 'Digite seu palpite usando o teclado numérico',
+                'rule-3': 'Os resultados mostram o formato AxB:<br>A = Dígito correto na posição correta<br>B = Dígito correto mas na posição errada',
+                'rule-4': 'Exemplo: "1234 = 2A1B" significa 2 dígitos na posição correta, 1 dígito correto mas na posição errada',
+                'rule-5': 'Vença com 4A0B (Iniciante), 5A0B (Intermediário) ou 6A0B (Avançado)!',
+            },
+            'tr': {
+                'back-link': 'Tüm uygulamalar',
+                'hero-title': 'Sayı tahmin oyunu',
+                'hero-subtitle': 'Klasik bir sayı tahmin oyunu. Sınırlı deneme sayısı içinde gizli sayıyı bulun!',
+                'badge-1': '13 dil',
+                'badge-2': '3 zorluk',
+                'badge-3': 'Liderler',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play\'den al',
+                'btn-apk': 'APK indir',
+                'screenshots-title': 'Ekran görüntüleri',
+                'features-title': 'Özellikler',
+                'feature-1-title': '13 dil',
+                'feature-1-desc': 'Çince, İngilizce, Japonca, Korece, Almanca, Fransızca, İspanyolca, Rusça, Portekizce, Türkçe, Hintçe, Endonezce desteği.',
+                'feature-2-title': '3 zorluk seviyesi',
+                'feature-2-desc': 'Başlangıç (4 basamak), Orta (5 basamak) ve Ustalık (6 basamak) seviyeleri.',
+                'feature-3-title': 'Liderler',
+                'feature-3-desc': 'Kendi kendinizle yarışın! En iyi skorlarınızı takip edin ve zirveye ulaşın.',
+                'feature-4-title': 'Modern UI',
+                'feature-4-desc': 'Jetpack Compose ve Material Design 3 ile oluşturulan pürüzsüz ve güzel bir deneyim.',
+                'rules-title': 'Oyun kuralları',
+                'rule-1': 'Gizli sayı tekrar edilmeyen rakamlardan oluşur',
+                'rule-2': 'Tahmininizi sayısal tuş takımını kullanarak girin',
+                'rule-3': 'Sonuçlar AxB formatını gösterir:<br>A = Doğru pozisyondaki doğru rakam<br>B = Doğru ama yanlış pozisyondaki rakam',
+                'rule-4': 'Örnek: "1234 = 2A1B" 2 rakamın doğru pozisyonda, 1 rakamın doğru ama yanlış pozisyonda olduğu anlamına gelir',
+                'rule-5': '4A0B (Başlangıç), 5A0B (Orta) veya 6A0B (Ustalık) ile kazanın!',
+            },
+            'hi': {
+                'back-link': 'सभी ऐप्स',
+                'hero-title': 'नंबर गेसिंग गेम',
+                'hero-subtitle': 'एक क्लासिक नंबर गेसिंग पहेली गेम। सीमित प्रयासों में गुप्त नंबर का अनुमान लगाएं!',
+                'badge-1': '13 भाषाएं',
+                'badge-2': '3 कठिनाई',
+                'badge-3': 'लीडरबोर्ड',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Google Play पर प्राप्त करें',
+                'btn-apk': 'APK डाउनलोड करें',
+                'screenshots-title': 'स्क्रीनशॉट',
+                'features-title': 'विशेषताएं',
+                'feature-1-title': '13 भाषाएं',
+                'feature-1-desc': 'चीनी, अंग्रेजी, जापानी, कोरियाई, जर्मन, फ्रेंच, स्पेनिश, रूसी, पुर्तगाली, तुर्की, हिंदी, इंडोनेशियाई समर्थन।',
+                'feature-2-title': '3 कठिनाई स्तर',
+                'feature-2-desc': 'शुरुआती (4 अंक), मध्यम (5 अंक), और माहिर (6 अंक) चुनौतियां।',
+                'feature-3-title': 'लीडरबोर्ड',
+                'feature-3-desc': 'अपने साथ प्रतिस्पर्धा करें! अपने सर्वश्रेष्ठ स्कोर को ट्रैक करें।',
+                'feature-4-title': 'आधुनिक UI',
+                'feature-4-desc': 'Jetpack Compose और Material Design 3 से बना चिकना और सुंदर अनुभव।',
+                'rules-title': 'गेम के नियम',
+                'rule-1': 'गुप्त नंबर गैर-दोहराव वाले अंकों से बना है',
+                'rule-2': 'नंबर कीबोर्ड का उपयोग करके अपना अनुमान दर्ज करें',
+                'rule-3': 'परिणाम AxB प्रारूप दिखाते हैं:<br>A = सही स्थिति में सही अंक<br>B = सही अंक लेकिन गलत स्थिति',
+                'rule-4': 'उदाहरण: "1234 = 2A1B" का अर्थ है 2 अंक सही स्थिति में, 1 अंक सही लेकिन गलत स्थिति में',
+                'rule-5': '4A0B (शुरुआती), 5A0B (मध्यम), या 6A0B (माहिर) के साथ जीतें!',
+            },
+            'id': {
+                'back-link': 'Semua aplikasi',
+                'hero-title': 'Game tebak angka',
+                'hero-subtitle': 'Game teka-teki tebak angka klasik. Tebak angka rahasia dalam percobaan terbatas!',
+                'badge-1': '13 bahasa',
+                'badge-2': '3 kesulitan',
+                'badge-3': 'Papan peringkat',
+                'badge-4': 'Material Design 3',
+                'btn-play': 'Dapatkan di Google Play',
+                'btn-apk': 'Unduh APK',
+                'screenshots-title': 'Tangkapan layar',
+                'features-title': 'Fitur',
+                'feature-1-title': '13 bahasa',
+                'feature-1-desc': 'Dukungan untuk Mandarin, Inggris, Jepang, Korea, Jerman, Prancis, Spanyol, Rusia, Portugis, Turki, Hindi, Indonesia.',
+                'feature-2-title': '3 tingkat kesulitan',
+                'feature-2-desc': 'Pemula (4 digit), Menengah (5 digit), dan Lanjutan (6 digit).',
+                'feature-3-title': 'Papan peringkat',
+                'feature-3-desc': 'Bersaing dengan diri sendiri! Lacak skor terbaik Anda dan raih puncak.',
+                'feature-4-title': 'UI modern',
+                'feature-4-desc': 'Dibangun dengan Jetpack Compose dan Material Design 3 untuk pengalaman yang halus dan indah.',
+                'rules-title': 'Aturan permainan',
+                'rule-1': 'Angka rahasia terdiri dari digit yang tidak berulang',
+                'rule-2': 'Masukkan tebakan Anda menggunakan keyboard angka',
+                'rule-3': 'Hasil menunjukkan format AxB:<br>A = Digit yang benar di posisi yang benar<br>B = Digit yang benar tapi di posisi yang salah',
+                'rule-4': 'Contoh: "1234 = 2A1B" berarti 2 digit di posisi yang benar, 1 digit benar tapi di posisi yang salah',
+                'rule-5': 'Menang dengan 4A0B (Pemula), 5A0B (Menengah), atau 6A0B (Lanjutan)!',
+            }
+        };
+
+        function getCurrentLang() {
+            const urlParams = new URLSearchParams(window.location.search);
+            let lang = urlParams.get('lang');
+            if (!lang) {
+                lang = localStorage.getItem('selectedLang') || 'auto';
+            }
+            if (lang === 'auto') {
+                const browserLang = navigator.language || navigator.userLanguage;
+                lang = browserLang.startsWith('zh') ? (browserLang === 'zh-TW' || browserLang === 'zh-HK' ? 'zh-TW' : 'zh-CN') : 
+                       browserLang.split('-')[0];
+                const langMap = {'en': 'en', 'ja': 'ja', 'ko': 'ko', 'de': 'de', 'fr': 'fr', 'es': 'es', 'ru': 'ru', 'pt': 'pt', 'tr': 'tr', 'hi': 'hi', 'id': 'id'};
+                lang = langMap[lang] || 'en';
+            }
+            return lang;
+        }
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selectedLang', lang);
+            const currentUrl = window.location.href.split('?')[0];
+            if (lang === 'auto') {
+                window.location.href = currentUrl;
+            } else {
+                window.location.href = currentUrl + '?lang=' + lang;
+            }
+        }
+
+        function applyTranslations() {
+            const lang = getCurrentLang();
+            if (lang === 'en' || !translations[lang]) return;
+
+            const t = translations[lang];
+            
+            // Back link
+            const backLink = document.querySelector('.back-link span');
+            if (backLink && t['back-link']) backLink.textContent = t['back-link'];
+            
+            // Hero section
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle && t['hero-title']) heroTitle.textContent = t['hero-title'];
+            const heroSubtitle = document.querySelector('.hero-subtitle');
+            if (heroSubtitle && t['hero-subtitle']) heroSubtitle.textContent = t['hero-subtitle'];
+            
+            // Badges
+            const badges = document.querySelectorAll('.badge');
+            if (t['badge-1'] && badges[0]) badges[0].textContent = t['badge-1'];
+            if (t['badge-2'] && badges[1]) badges[1].textContent = t['badge-2'];
+            if (t['badge-3'] && badges[2]) badges[2].textContent = t['badge-3'];
+            if (t['badge-4'] && badges[3]) badges[3].textContent = t['badge-4'];
+            
+            // Download buttons
+            const btnPlay = document.querySelector('.btn-play');
+            if (btnPlay && t['btn-play']) btnPlay.innerHTML = btnPlay.innerHTML.replace(/Get on Google Play/, t['btn-play']);
+            const btnApk = document.querySelector('.btn-apk');
+            if (btnApk && t['btn-apk']) btnApk.innerHTML = btnApk.innerHTML.replace(/Download APK/, t['btn-apk']);
+            
+            // Screenshots title
+            const screenshotsTitle = document.querySelector('.screenshots-grid').previousElementSibling;
+            if (screenshotsTitle && t['screenshots-title']) screenshotsTitle.textContent = t['screenshots-title'];
+            
+            // Features
+            const featuresTitle = document.querySelector('.features-grid').previousElementSibling;
+            if (featuresTitle && t['features-title']) featuresTitle.textContent = t['features-title'];
+            
+            const featureCards = document.querySelectorAll('.feature-card');
+            if (featureCards.length >= 4) {
+                if (t['feature-1-title']) featureCards[0].querySelector('h3').textContent = t['feature-1-title'];
+                if (t['feature-1-desc']) featureCards[0].querySelector('p').textContent = t['feature-1-desc'];
+                if (t['feature-2-title']) featureCards[1].querySelector('h3').textContent = t['feature-2-title'];
+                if (t['feature-2-desc']) featureCards[1].querySelector('p').textContent = t['feature-2-desc'];
+                if (t['feature-3-title']) featureCards[2].querySelector('h3').textContent = t['feature-3-title'];
+                if (t['feature-3-desc']) featureCards[2].querySelector('p').textContent = t['feature-3-desc'];
+                if (t['feature-4-title']) featureCards[3].querySelector('h3').textContent = t['feature-4-title'];
+                if (t['feature-4-desc']) featureCards[3].querySelector('p').textContent = t['feature-4-desc'];
+            }
+            
+            // Rules
+            const rulesTitle = document.querySelector('.rules-content').previousElementSibling;
+            if (rulesTitle && t['rules-title']) rulesTitle.textContent = t['rules-title'];
+            
+            const rulesList = document.querySelectorAll('.rules-list li span:last-child');
+            if (rulesList.length >= 5) {
+                if (t['rule-1']) rulesList[0].innerHTML = t['rule-1'];
+                if (t['rule-2']) rulesList[1].textContent = t['rule-2'];
+                if (t['rule-3']) rulesList[2].innerHTML = t['rule-3'];
+                if (t['rule-4']) rulesList[3].textContent = t['rule-4'];
+                if (t['rule-5']) rulesList[4].innerHTML = t['rule-5'];
+            }
+            
+            // Update lang selector
+            const langSelect = document.getElementById('langSelect');
+            if (langSelect) langSelect.value = lang;
+        }
+
+        document.addEventListener('DOMContentLoaded', applyTranslations);
+    </script>
+</body>
+</html>
